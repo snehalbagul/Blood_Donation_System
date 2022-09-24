@@ -1,0 +1,149 @@
+        -:    0:Source:transaction_file_operation.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/********************************************************************************************************************
+        -:    2: ** FUNCTION NAME     :      transaction_file_operation
+        -:    3: **
+        -:    4: ** DESCRIPTION       :
+        -:    5: **
+        -:    6: **
+        -:    7: ** RETURNS           :
+        -:    8: **
+        -:    9: **
+        -:   10: ******************************************************************************************************************/
+        -:   11:
+        -:   12:#include<iostream>
+        -:   13:#include<iomanip>
+        -:   14:#include "header.hpp"
+        -:   15:using namespace std;
+        -:   16:
+function _Z24transaction_file_to_listv called 0 returned 0% blocks executed 0%
+    #####:   17:int transaction_file_to_list()
+        -:   18:{
+    #####:   19:	receiver rec;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+    #####:   20:	fstream fl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+    #####:   21:	fl.open("Transaction_database",ios::in|ios::binary);
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   22:	if(!fl)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+        -:   23:	{
+    #####:   24:		cout<<endl<<"Can't open a file.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   25:		return 0;
+        -:   26:	}
+    #####:   27:	fl.read((char *)&rec,sizeof(receiver));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   28:	while(!fl.eof())
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+        -:   29:	{
+    #####:   30:		rl.push_back(rec);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   31:		fl.read((char *)&rec,sizeof(receiver));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   32:	}
+    #####:   33:	fl.close();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   34:
+        -:   35:	//cout<<"not available."<<endl;
+    #####:   36:	return 0;
+        -:   37:}
+        -:   38:
+function _Z24list_to_transaction_filev called 1 returned 100% blocks executed 55%
+        1:   39:int list_to_transaction_file()
+        -:   40:{
+        2:   41:	receiver rec;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 never executed
+        2:   42:	fstream fl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 never executed
+        1:   43:	fl.open("Transacton_database",ios::out|ios::binary);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   44:	if(!fl)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+        -:   45:	{
+    #####:   46:		cout<<endl<<"can't open a file.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   47:		return 0;
+        -:   48:	}
+       1*:   49:	for(receiver rec:rl)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+call   10 never executed
+call   11 never executed
+        -:   50:	{
+    #####:   51:		fl.write((char *)&rec,sizeof(receiver));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   52:	}
+        1:   53:	fl.close();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   54:	rl.clear();
+call    0 returned 1
+        -:   55:	//cout<<"not available."<<endl;
+        1:   56:	return 0;
+        -:   57:}

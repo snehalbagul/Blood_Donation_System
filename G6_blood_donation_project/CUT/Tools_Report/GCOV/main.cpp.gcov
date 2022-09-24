@@ -1,0 +1,365 @@
+        -:    0:Source:main.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/********************************************************************************************************************
+        -:    2: ** FUNCTION NAME     :    main.c
+        -:    3: **
+        -:    4: ** DESCRIPTION       :    This file defines the function which send external message for refer 
+        -:    5: **
+        -:    6: **
+        -:    7: ** REVISION HISTORY  :
+        -:    8: ** DATE                      NAME                              REASON
+        -:    9: ** ---------------------------------------------------------------------------------------------------------------
+        -:   10: ** 18 SEPTEMBER 2022         MUSKAN YADAV                      To make main file and include all function in it
+        -:   11: ** 21 SEPTEMBER 2022         SNEHAL BAGUL                      To make changes in header of a file 
+        -:   12: ********************************************************************************************************************/
+        -:   13:
+        -:   14:#include <iostream>
+        -:   15:#include <iomanip>
+        -:   16:#include <bits/stdc++.h>
+        -:   17:#include <sstream>
+        -:   18:#include <fstream>
+        -:   19:#include <string>
+        -:   20:#include <list>
+        -:   21:#include <thread>
+        -:   22:#include "donor_registration.cpp"
+        -:   23:#include "receiver_registration.cpp"
+        -:   24:#include "transaction_file_operation.cpp"
+        -:   25:#include "donor_file_operation.cpp"
+        -:   26:#include "report.cpp"
+        -:   27:#include "employee_validation.cpp"
+        -:   28:#include "Validation.cpp"
+        -:   29:#include "header.hpp"
+        -:   30:#include "submenu.cpp"
+        -:   31:#include "manage_donor_data.cpp"
+        -:   32:#include "receiver_related_operations.cpp"
+        -:   33:
+        -:   34:using namespace std;
+        -:   35:
+function main called 1 returned 100% blocks executed 53%
+        1:   36:int main()
+        -:   37:{
+        -:   38:	
+        2:   39:	fstream fl1,fl2;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+call    7 returned 1
+call    8 never executed
+call    9 never executed
+        1:   40:	fl1.open("Donor_database",ios::in | ios::binary);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   41:	if(fl1)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+        -:   42:	{
+    #####:   43:		fl1.close();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   44:		donor_file_to_list();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   45:	}
+        1:   46:	fl2.open("Transaction_database",ios::in|ios::binary);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   47:	if(fl2)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+        -:   48:	{
+    #####:   49:		fl2.close();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   50:		transaction_file_to_list();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   51:	}
+        1:   52:	string choice1="";
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 never executed
+        1:   53:	system("clear");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        9:   54:	while(choice1!="4")
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 9 (fallthrough)
+branch  4 taken 0
+        -:   55:	{
+        -:   56:		//system("clear");
+        -:   57:	
+        9:   58:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 9
+branch  7 taken 9 (fallthrough)
+branch  8 taken 0 (throw)
+        9:   59:		cout<<endl<<"                  WELCOME TO BLOOD DONATION SYSTEM"<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 9
+branch  7 taken 9 (fallthrough)
+branch  8 taken 0 (throw)
+        9:   60:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 9
+branch  7 taken 9 (fallthrough)
+branch  8 taken 0 (throw)
+        9:   61:		cout<<"1.Donor registration."<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:   62:		cout<<"2.Receiver Enquiry and Registration."<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:   63:		cout<<"3.The Employee Corner."<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:   64:		cout<<"4.Exit."<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:   65:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 9
+branch  7 taken 9 (fallthrough)
+branch  8 taken 0 (throw)
+        9:   66:		cout<<endl<<"Enter your choice-";
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:   67:		cin>>choice1;
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   68:		try
+        -:   69:		{
+        9:   70:			if(!isdigit(choice1[0]))
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 9
+    #####:   71:				throw choice1;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   72:		}
+    =====:   73:		catch(string b)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:   74:		{
+    =====:   75:			cout<<endl<<"Choice should only be in digits(1,2,3,4)."<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    =====:   76:			system("read a");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    =====:   77:			system("clear");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    =====:   78:			continue;
+        -:   79:		}
+        -:   80:		try
+        -:   81:		{
+        9:   82:			if(choice1.length()!=1)
+call    0 returned 9
+branch  1 taken 0 (fallthrough)
+branch  2 taken 9
+    #####:   83:				throw choice1;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   84:		}
+    =====:   85:		catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:   86:		{
+    =====:   87:			cout<<endl<<"Choice should be of only one digit(1,2,3,4)."<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    =====:   88:			system("read a");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    =====:   89:			system("clear");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    =====:   90:			continue;
+        -:   91:		}
+        -:   92:
+        9:   93:		if(choice1=="1")
+call    0 returned 9
+branch  1 taken 3 (fallthrough)
+branch  2 taken 6
+        3:   94:			donor_registration();
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   95:		else if(choice1=="2")
+call    0 returned 6
+branch  1 taken 3 (fallthrough)
+branch  2 taken 3
+        -:   96:		{
+        6:   97:			thread t1(receiver_registration);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 never executed
+        3:   98:			t1.join();
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   99:		}
+        3:  100:		else if(choice1=="3") 
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        -:  101:		{
+       2*:  102:			if(submenu()==false)
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 2
+    #####:  103:				continue;
+        -:  104:		}
+       1*:  105:		else if(choice1=="4")	
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        -:  106:		{
+        1:  107:			break;
+        -:  108:		}
+        -:  109:		else
+        -:  110:		{
+    #####:  111:			cout<<"Invalid choice!!!";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  112:			system("read a");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  113:			system("clear");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  114:			continue;
+        -:  115:		}
+        8:  116:		system("read a");
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0 (throw)
+        8:  117:		system("clear");
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  118:	}
+        -:  119:	//system("clear");
+        1:  120:	list_to_donor_file();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  121:	list_to_transaction_file();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  122:	return EXIT_SUCCESS;
+call    0 returned 1
+        -:  123:}
+        -:  124:

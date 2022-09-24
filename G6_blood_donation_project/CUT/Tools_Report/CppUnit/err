@@ -1,0 +1,17 @@
+cppUnit_testing.cpp:49:Assertion
+Test name: testdr::test_donor_registration
+assertion failed
+- Expression: 0==donor_registration()
+
+cppUnit_testing.cpp:54:Assertion
+Test name: testdr::test_edit_donor_data
+assertion failed
+- Expression: 0==myobj1->edit_donor_data()
+
+cppUnit_testing.cpp:59:Assertion
+Test name: testdr::test_employee_validation
+assertion failed
+- Expression: 0==employee_validation()
+
+Failures !!!
+Run: 3   Failure total: 3   Failures: 3   Errors: 0

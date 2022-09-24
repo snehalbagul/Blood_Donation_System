@@ -1,0 +1,444 @@
+        -:    0:Source:receiver_related_operations.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/***************************************************************************************************************
+        -:    2: ** FUNCTION NAME   :    receiver_registration
+        -:    3: **
+        -:    4: **
+        -:    5: ** DESCRIPTION     :     
+        -:    6: **
+        -:    7: **
+        -:    8: ** RETURNS         :
+        -:    9: **
+        -:   10: **
+        -:   11: **************************************************************************************************************/
+        -:   12:
+        -:   13:#include<iostream>
+        -:   14:#include<iomanip>
+        -:   15:#include<set>
+        -:   16:#include<list>
+        -:   17:#include<deque>
+        -:   18:#include<mutex>
+        -:   19:#include<string>
+        -:   20:using namespace std;
+        -:   21:
+        -:   22:/*_____________________________________________________________________________________________________________*/
+        -:   23:/**************************************************************************************************************/
+        -:   24:
+        -:   25:mutex accum_mutex;
+        -:   26:
+function _ZN8receiver19view_receiver_queueEv called 1 returned 100% blocks executed 74%
+        1:   27:int receiver::view_receiver_queue()
+        -:   28:{
+        -:   29:
+        1:   30:	if(q.empty())
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+        -:   31:	{
+    #####:   32:		system("clear");
+call    0 never executed
+        -:   33:		
+    #####:   34:		cout<<endl<<"____________________________________________________________________________________"<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   35:
+    #####:   36:		cout<<endl<<"************************************************************************************"<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   37:		cout<<endl<<setw(25)<<"RECEIVER QUEUE IS EMPTY."<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+    #####:   38:		cout<<endl<<"____________________________________________________________________________________"<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   39:		cout<<endl<<"************************************************************************************"<<endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   40:		system("read a");
+call    0 never executed
+    #####:   41:		system("clear");
+call    0 never executed
+        -:   42:
+    #####:   43:		return EXIT_FAILURE;
+        -:   44:	}
+        1:   45:	system("clear");
+call    0 returned 1
+        -:   46:
+        1:   47:	cout<<endl<<"____________________________________________________________________________________________";
+call    0 returned 1
+call    1 returned 1
+        1:   48:	cout<<endl<<"********************************************************************************************";
+call    0 returned 1
+call    1 returned 1
+        -:   49:
+        1:   50:	cout<<endl<<"                                  RECEIVER'S QUEUE";
+call    0 returned 1
+call    1 returned 1
+        -:   51:
+        1:   52:	cout<<endl<<"********************************************************************************************"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        1:   53:	cout<<setw(10)<<"AADHAR NUMBER"<<setw(15)<<"NAME"<<setw(18)<<"ADDRESS"<<setw(18)<<"AGE"<<setw(22)<<"DONOR_AADHAR_NUMBER"<<setw(20)<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+call    5 returned 1
+call    6 returned 1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+call   11 returned 1
+call   12 returned 1
+call   13 returned 1
+call   14 returned 1
+call   15 returned 1
+call   16 returned 1
+call   17 returned 1
+        -:   54:
+        3:   55:	for(receiver it:q)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 3
+branch  3 taken 2 (fallthrough)
+branch  4 taken 1
+call    5 returned 2
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 2
+call   10 returned 2
+call   11 never executed
+        -:   56:	{
+        2:   57:		cout<<setw(10)<<it.aadhar_num<<setw(18)<<it.name<<setw(18)<<it.address<<setw(18)<<it.age<<setw(20)<<it.donor_aadhar_num<<setw(20)<<endl;
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 2
+call    8 returned 2
+branch  9 taken 2 (fallthrough)
+branch 10 taken 0 (throw)
+call   11 returned 2
+branch 12 taken 2 (fallthrough)
+branch 13 taken 0 (throw)
+call   14 returned 2
+call   15 returned 2
+branch 16 taken 2 (fallthrough)
+branch 17 taken 0 (throw)
+call   18 returned 2
+branch 19 taken 2 (fallthrough)
+branch 20 taken 0 (throw)
+call   21 returned 2
+call   22 returned 2
+branch 23 taken 2 (fallthrough)
+branch 24 taken 0 (throw)
+call   25 returned 2
+branch 26 taken 2 (fallthrough)
+branch 27 taken 0 (throw)
+call   28 returned 2
+call   29 returned 2
+branch 30 taken 2 (fallthrough)
+branch 31 taken 0 (throw)
+call   32 returned 2
+branch 33 taken 2 (fallthrough)
+branch 34 taken 0 (throw)
+call   35 returned 2
+call   36 returned 2
+branch 37 taken 2 (fallthrough)
+branch 38 taken 0 (throw)
+call   39 returned 2
+branch 40 taken 2 (fallthrough)
+branch 41 taken 0 (throw)
+        -:   58:	}
+        1:   59:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:   60:
+        1:   61:	system("read a");
+call    0 returned 1
+        1:   62:	system("clear");
+call    0 returned 1
+        1:   63:	return EXIT_SUCCESS;
+        -:   64:
+        -:   65:}
+        -:   66:
+        -:   67:
+        -:   68:
+        -:   69:/*________________________________________________________________________________________________________*/
+        -:   70:/**********************************************************************************************************/
+        -:   71:
+        -:   72:
+function _ZN8receiver18carry_out_donationEv called 1 returned 100% blocks executed 59%
+        1:   73:int receiver::carry_out_donation()
+        -:   74:{
+        -:   75:
+        2:   76:	receiver r;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 never executed
+        1:   77:	if(q.empty())
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+        -:   78:	{
+        -:   79:
+    #####:   80:		system("clear");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   81:		
+    #####:   82:		cout<<endl<<"____________________________________________________________________________________"<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+        -:   83:
+    #####:   84:		cout<<endl<<"************************************************************************************"<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:   85:		cout<<endl<<setw(25)<<"RECEIVER QUEUE IS EMPTY."<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    #####:   86:		cout<<endl<<"____________________________________________________________________________________"<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:   87:		cout<<endl<<"************************************************************************************"<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:   88:		system("read a");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   89:		system("clear");
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   90:
+    #####:   91:		return EXIT_FAILURE;
+        -:   92:	}
+        1:   93:	accum_mutex.lock();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   94:	while(!q.empty())
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        -:   95:	{
+        2:   96:		r=q.front();
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   97:		rl.push_back(r);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   98:		q.pop_front();
+call    0 returned 2
+        -:   99:	}
+        1:  100:	accum_mutex.unlock();
+call    0 returned 1
+        -:  101:
+        1:  102:	system("clear");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  103:	cout<<endl<<"____________________________________________________________________________________________";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  104:
+        1:  105:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        -:  106:
+        -:  107:
+        1:  108:	cout<<endl<<"******************************DONATION PROCESS SUCCESSFULL**********************************"<<endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  109:	cout<<endl<<"____________________________________________________________________________________________";
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  110:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        -:  111:
+        1:  112:	system("read a");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  113:	system("clear");
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  114:	return EXIT_SUCCESS;
+        -:  115:}
+        -:  116:
+        -:  117:
+        -:  118:
+        -:  119:
+        -:  120:/*______________________________________________________________________________________________________________*/
+        -:  121:/***************************************************************************************************************/
+        -:  122:
+        -:  123:
+function _ZN8receiver29remove_daily_transaction_fileEv called 1 returned 100% blocks executed 100%
+        1:  124:int receiver::remove_daily_transaction_file()
+        -:  125:{
+        1:  126:	system("clear");
+call    0 returned 1
+        -:  127:
+        1:  128:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:  129:
+        1:  130:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:  131:
+        1:  132:	rl.clear();
+call    0 returned 1
+        -:  133:
+        1:  134:	cout<<endl<<"*************************************FILE DELETED*******************************************"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        1:  135:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:  136:
+        1:  137:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        1:  138:	system("read a");
+call    0 returned 1
+        1:  139:	system("clear");
+call    0 returned 1
+        1:  140:	return EXIT_SUCCESS;
+        -:  141:}
+        -:  142:
+        -:  143:
+        -:  144:
+        -:  145:/*_____________________________________________________________________________________________________________*/
+        -:  146:/***************************************************************************************************************/
+        -:  147:
+function _Z21receiver_registrationv called 3 returned 100% blocks executed 82%
+        3:  148:void receiver_registration()
+        -:  149:{
+        6:  150:	receiver r;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 never executed
+        -:  151:
+        3:  152:	accum_mutex.lock();
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  153:	if(r.get_receiver_data()==0)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 2 (fallthrough)
+branch  4 taken 1
+        -:  154:	{
+        2:  155:		q.push_back(r);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  156:	}
+        3:  157:	accum_mutex.unlock();
+call    0 returned 3
+        3:  158:}
+        -:  159:
+        -:  160:/*_____________________________________________________________________________________________________________*/
+        -:  161:/***************************************************************************************************************/

@@ -1,0 +1,501 @@
+        -:    0:Source:donor_registration.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/*****************************************************************************************************************
+        -:    2: ** FUNCTION NAME   :   donor_registration
+        -:    3: **
+        -:    4: ** DESCRIPTION     :  
+        -:    5: **
+        -:    6: **
+        -:    7: ** RETURNS         :
+        -:    8: **
+        -:    9: **
+        -:   10: *****************************************************************************************************************/
+        -:   11:
+        -:   12:#include<iostream>
+        -:   13:#include<iomanip>
+        -:   14:#include<set>
+        -:   15:#include<list>
+        -:   16:#include<string>
+        -:   17:#include "header.hpp"
+        -:   18:using namespace std;
+        -:   19:static int flag=0;
+        -:   20:
+        -:   21://----------------------------BLOOD DONATION CLASS(BASE CLASS)------------------------
+        -:   22:
+        -:   23:class blood_donation
+        -:   24:{
+        -:   25:	protected:
+        -:   26:		string age;
+        -:   27:		string aadhar_num;
+        -:   28:		string name;
+        -:   29:		string address;
+        -:   30:		string blood_group;
+        -:   31:
+        -:   32:	public:
+function _ZN14blood_donationC2Ev called 12 returned 100% blocks executed 57%
+       12:   33:		blood_donation()
+       12:   34:		{
+call    0 returned 12
+call    1 returned 12
+call    2 returned 12
+call    3 returned 12
+call    4 returned 12
+call    5 never executed
+call    6 never executed
+call    7 never executed
+call    8 never executed
+call    9 never executed
+       12:   35:			aadhar_num="";
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   36:			name="";
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   37:			address="";
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   38:			blood_group="";
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   39:			age="";
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   40:		}
+        -:   41:};
+        -:   42:
+        -:   43://-------------------------------DONOR CLASS-(DERIVED CLASS)-------------------------
+        -:   44:
+        -:   45:class donor:public blood_donation
+        -:   46:{
+        -:   47:	protected:
+        -:   48:		string medical_clear;
+        -:   49:		int units_donated;
+        -:   50:	public:
+function _ZN5donorC2Ev called 5 returned 100% blocks executed 100%
+        5:   51:		donor()
+        5:   52:		{
+call    0 returned 5
+call    1 returned 5
+        5:   53:			units_donated=0;
+        5:   54:		}
+        -:   55:		int edit_donor_data();
+        -:   56:		int remove_donor_data();
+        -:   57:		int view_donor_data();
+        -:   58:		int previous_day_donor_report();
+        -:   59:		int five_highest_donor_report();
+        -:   60:		int view_all_donor_data();
+        -:   61:		friend class testdr;
+        -:   62:
+function _ZN5donor14get_aadhar_numB5cxx11Ev called 12 returned 100% blocks executed 100%
+       12:   63:		string get_aadhar_num()
+        -:   64:		{
+       12:   65:			return this->aadhar_num;
+call    0 returned 12
+        -:   66:		}
+function _ZN5donor15get_blood_groupB5cxx11Ev called 9 returned 100% blocks executed 100%
+        9:   67:		string get_blood_group()
+        -:   68:		{
+        9:   69:			return this->blood_group;
+call    0 returned 9
+        -:   70:		}
+function _ZN5donor8get_nameB5cxx11Ev called 2 returned 100% blocks executed 100%
+        2:   71:		string get_name()
+        -:   72:		{
+        2:   73:			return this->name;
+call    0 returned 2
+        -:   74:		}
+function _ZN5donor11get_addressB5cxx11Ev called 2 returned 100% blocks executed 100%
+        2:   75:		string get_address()
+        -:   76:		{
+        2:   77:			return this->address;
+call    0 returned 2
+        -:   78:		}
+function _ZN5donor7get_ageB5cxx11Ev called 2 returned 100% blocks executed 100%
+        2:   79:		string get_age()
+        -:   80:		{
+        2:   81:			return this->age;
+call    0 returned 2
+        -:   82:		}
+        -:   83:		int get_units_donated()
+        -:   84:		{
+        -:   85:			return this->units_donated;
+        -:   86:		}
+function _ZN5donor17set_units_donatedEi called 2 returned 100% blocks executed 100%
+        2:   87:		int set_units_donated(int u)
+        -:   88:		{
+        2:   89:			return this->units_donated=units_donated+u;
+        -:   90:		}
+        -:   91:		void put_aadhar_num(string a_num)
+        -:   92:		{
+        -:   93:			this->aadhar_num=a_num;
+        -:   94:		}
+        -:   95:		void put_name(string name)
+        -:   96:		{
+        -:   97:			this->name=name;
+        -:   98:		}
+        -:   99:		void put_address(string address)
+        -:  100:		{
+        -:  101:			this->address=address;
+        -:  102:		}
+        -:  103:		void put_age(string age)
+        -:  104:		{
+        -:  105:			this->age=age;
+        -:  106:		}
+        -:  107:		void put_blood_group(string blood_group)
+        -:  108:		{
+        -:  109:			this->blood_group=blood_group;
+        -:  110:		}
+        -:  111:		void put_units_donated(int units_donated)
+        -:  112:		{
+        -:  113:			this->units_donated=units_donated;
+        -:  114:		}
+        -:  115:
+function _ZNK5donorgtERKS_ called 1 returned 100% blocks executed 100%
+        1:  116:		bool operator>( const donor& d1) const
+        -:  117:		{
+        1:  118:			return units_donated>d1.units_donated;
+        -:  119:		}
+        -:  120:
+function _ZN5donor14get_donor_dataEv called 3 returned 100% blocks executed 59%
+        3:  121:		int get_donor_data()
+        -:  122:		{
+        -:  123:			//....Aadhar validation...........
+        3:  124:			system("clear");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  125:			while(1)
+        -:  126:			{
+       3*:  127:				cout<<endl<<"Enter your Aadhar number-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  128:				cin>>aadhar_num;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:  129:				if(aadhar_validation(aadhar_num)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  130:					break;
+        -:  131:				else
+    #####:  132:					continue;
+        -:  133:			}
+        -:  134:
+        -:  135:			//....Name validation.............
+        -:  136:			while(1)
+        -:  137:			{
+       3*:  138:				cout<<endl<<"Enter your initial name-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  139:				getline(cin>>ws,name);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+       3*:  140:				if(name_validation(name)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  141:					break;
+        -:  142:				else
+    #####:  143:					continue;
+        -:  144:			}
+        -:  145:
+        -:  146:			//....Address validation..........
+        -:  147:			while(1)
+        -:  148:			{
+       3*:  149:				cout<<endl<<"Enter your address-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  150:				getline(cin,address);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:  151:				if(address_validation(address)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  152:					break;
+        -:  153:				else
+    #####:  154:					continue;
+        -:  155:			}
+        -:  156:
+        -:  157:			//....Age validation...............
+        -:  158:			while(1)
+        -:  159:			{
+       3*:  160:				cout<<endl<<"Enter your age-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  161:				cin>>age;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:  162:				if(age_validation(age)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  163:					break;
+        -:  164:				else
+    #####:  165:					continue;
+        -:  166:			}
+        -:  167:
+        -:  168:			//....Blood group validation........
+        6:  169:			string ch;
+call    0 returned 3
+call    1 returned 3
+call    2 never executed
+        -:  170:			while(1)
+        -:  171:			{
+       3*:  172:				cout<<endl<<"Blood Groups -";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  173:				cout<<endl<<"1.A+	5.O+";	
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  174:				cout<<endl<<"2.A-	6.O-";	
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  175:				cout<<endl<<"3.B+	7.AB+";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  176:				cout<<endl<<"4.B-	8.AB-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  177:			        	
+        3:  178:				cout<<endl<<"Enter your choice(1-8) for blood group from above  data-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  179:				cin>>ch;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  180:				
+       3*:  181:				if(blood_group_validation(ch)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  182:					break;
+        -:  183:				else
+    #####:  184:					continue;
+        -:  185:			}
+        -:  186:
+       51:  187:			string str[8]={"A+","A-","B+","B-","O+","O-","AB-","AB+"};
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+call    8 returned 3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 3
+call   13 returned 3
+branch 14 taken 3 (fallthrough)
+branch 15 taken 0 (throw)
+call   16 returned 3
+call   17 returned 3
+branch 18 taken 3 (fallthrough)
+branch 19 taken 0 (throw)
+call   20 returned 3
+call   21 returned 3
+branch 22 taken 3 (fallthrough)
+branch 23 taken 0 (throw)
+call   24 returned 3
+call   25 returned 3
+branch 26 taken 3 (fallthrough)
+branch 27 taken 0 (throw)
+call   28 returned 3
+call   29 returned 3
+branch 30 taken 3 (fallthrough)
+branch 31 taken 0 (throw)
+branch 32 taken 24 (fallthrough)
+branch 33 taken 3
+call   34 returned 24
+call   35 never executed
+branch 36 never executed
+branch 37 never executed
+call   38 never executed
+        3:  188:			blood_group=str[stoi(ch)-1];
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  189:
+        -:  190:			//....Medical clearance validation.......
+        -:  191:			while(1)
+        -:  192:			{
+        3:  193:				cout<<endl<<"Enter (Y/y) if you have medical clearance-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  194:				cin>>medical_clear;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  195:				if(medical_clearance_validation(medical_clear)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  196:					break;
+        -:  197:				else
+        -:  198:				{
+    #####:  199:					cout<<endl<<"You are not eligible to donate blood."<<endl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:  200:					return 1;
+        -:  201:				}
+        -:  202:
+        -:  203:			}
+        3:  204:			system("read a");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  205:			system("clear");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  206:			return 0;
+        -:  207:		}
+        -:  208:};
+        -:  209:list<donor> l;
+        -:  210:donor d;
+        -:  211:/*__________________________________________________________________________________*/
+        -:  212:/*************************************************************************************/
+        -:  213:
+        -:  214://--------------------------DONOR REGSITRATION---------------------------------------
+        -:  215:
+function _Z18donor_registrationv called 3 returned 100% blocks executed 75%
+        3:  216:int donor_registration()
+        -:  217:{
+        6:  218:	donor d;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 never executed
+        3:  219:	if(d.get_donor_data()==0)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 3 (fallthrough)
+branch  4 taken 0
+        -:  220:	{
+        3:  221:		l.push_back(d);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  222:		return 0;
+        -:  223:	}
+        -:  224:	else
+    #####:  225:		return 1;
+        -:  226:}
+        -:  227://____________________________________________________________________________________
+        -:  228:/*************************************************************************************/

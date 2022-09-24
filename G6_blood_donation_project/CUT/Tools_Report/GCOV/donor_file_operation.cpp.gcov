@@ -1,0 +1,224 @@
+        -:    0:Source:donor_file_operation.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/******************************************************************************************************************
+        -:    2: ** FUNCTION NAME  :  donar_file_operation
+        -:    3: **
+        -:    4: ** DESCRIPTION    :   
+        -:    5: **
+        -:    6: **
+        -:    7: ** RETURNS        :
+        -:    8: **
+        -:    9: **
+        -:   10:******************************************************************************************************************/ 
+        -:   11:#include<iostream>
+        -:   12:#include<iomanip>
+        -:   13:#include "header.hpp"
+        -:   14:using namespace std;
+        -:   15:
+        -:   16:
+        -:   17:
+function _Z18donor_file_to_listv called 0 returned 0% blocks executed 0%
+    #####:   18:int donor_file_to_list()
+        -:   19:{
+        -:   20:	/*fstream fl;
+        -:   21:	donor dl;
+        -:   22:	
+        -:   23:	string a_num;
+        -:   24:	string name;
+        -:   25:	string address;
+        -:   26:	string age;
+        -:   27:	string blood_group;
+        -:   28:	int units_donated;
+        -:   29:	fl.open("Donor_database",ios::in|ios::binary);
+        -:   30:	if(fl)
+        -:   31:	{
+        -:   32:		fl>>a_num;
+        -:   33:		while(!fl.eof())
+        -:   34:		{
+        -:   35:			dl.put_aadhar_num(a_num);
+        -:   36:			fl>>name;
+        -:   37:			dl.put_name(name);
+        -:   38:			fl>>address;
+        -:   39:			dl.put_address(address);
+        -:   40:			fl>>age;
+        -:   41:			dl.put_age(age);
+        -:   42:			fl>>blood_group;
+        -:   43:			dl.put_blood_group(blood_group);
+        -:   44:			fl>>units_donated;
+        -:   45:			dl.put_units_donated(units_donated);
+        -:   46:			l.push_back(dl);
+        -:   47:		}
+        -:   48:	}
+        -:   49:	fl.close();
+        -:   50:	return EXIT_SUCCESS;*/
+        -:   51:
+    #####:   52:	donor d1;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+    #####:   53:	fstream fl;
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+    #####:   54:	fl.open("Donor_database",ios::in|ios::binary);
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:   55:	if(!fl)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+        -:   56:	{
+    #####:   57:		cout<<endl<<"Can't open a file.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   58:		return 0;
+        -:   59:	}
+    #####:   60:	fl.read((char *)&d1,sizeof(donor));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   61:	while(!fl.eof())
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+        -:   62:	{
+    #####:   63:		l.push_back(d1);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   64:		fl.read((char *)&d1,sizeof(donor));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   65:	}
+    #####:   66:	fl.close();
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   67:
+        -:   68:	//cout<<"not available."<<endl;
+    #####:   69:	return 0;
+        -:   70:}
+        -:   71:
+function _Z18list_to_donor_filev called 1 returned 100% blocks executed 70%
+        1:   72:int list_to_donor_file()
+        -:   73:{
+        -:   74:	/*fstream fl;
+        -:   75:	donor dl;
+        -:   76:	string a_num;
+        -:   77:	string name;
+        -:   78:	string address;
+        -:   79:	string age;
+        -:   80:	string blood_group;
+        -:   81:	int units_donated;
+        -:   82:
+        -:   83:	if(l.empty())
+        -:   84:		return EXIT_FAILURE;
+        -:   85:
+        -:   86:	fl.open("Donor_database",ios::out|ios::binary);
+        -:   87:
+        -:   88:	for(list<donor>::iterator it=l.begin();it!=l.end();it++)
+        -:   89:	{
+        -:   90:		 a_num=dl.get_aadhar_num();
+        -:   91:		 fl<<a_num;
+        -:   92:		 fl<<" ";
+        -:   93:
+        -:   94:		 name=dl.get_name();
+        -:   95:		 fl<<name;
+        -:   96:		 fl<<" ";
+        -:   97:
+        -:   98:		 address=dl.get_address();
+        -:   99:		 fl<<address;
+        -:  100:		 fl<<" ";
+        -:  101:
+        -:  102:		 age=dl.get_age();
+        -:  103:		 fl<<age;
+        -:  104:		 fl<<" ";
+        -:  105:
+        -:  106:		 blood_group=dl.get_blood_group();
+        -:  107:		 fl<<blood_group;
+        -:  108:		 fl<<" ";
+        -:  109:
+        -:  110:		 units_donated=dl.get_units_donated();
+        -:  111:		 fl<<units_donated;
+        -:  112:		 fl<<" ";
+        -:  113:	}
+        -:  114:	fl.close();
+        -:  115:	return EXIT_SUCCESS;*/
+        2:  116:	donor d2;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 never executed
+        2:  117:	fstream fl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 never executed
+        1:  118:	fl.open("Donor_database",ios::out|ios::binary);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  119:	if(!fl)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+        -:  120:	{
+    #####:  121:		cout<<endl<<"can't open a file.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  122:		return 0;
+        -:  123:	}
+        3:  124:	for(donor d2:l)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 3
+branch  3 taken 2 (fallthrough)
+branch  4 taken 1
+call    5 returned 2
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 2
+call   10 returned 2
+call   11 never executed
+        -:  125:	{
+        2:  126:		fl.write((char *)&d2,sizeof(donor));
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  127:	}
+        1:  128:	fl.close();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  129:	l.clear();
+call    0 returned 1
+        -:  130:	//cout<<"not available."<<endl;
+        1:  131:	return 0;
+        -:  132:}

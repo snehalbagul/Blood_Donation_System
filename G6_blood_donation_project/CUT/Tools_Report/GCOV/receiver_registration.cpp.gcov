@@ -1,0 +1,953 @@
+        -:    0:Source:receiver_registration.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/***************************************************************************************************************
+        -:    2: ** FUNCTION NAME   :    receiver_registration
+        -:    3: **
+        -:    4: **
+        -:    5: ** DESCRIPTION     :     
+        -:    6: **
+        -:    7: **
+        -:    8: ** RETURNS         :
+        -:    9: **
+        -:   10: **
+        -:   11: **************************************************************************************************************/
+        -:   12:
+        -:   13:#include<iostream>
+        -:   14:#include<iomanip>
+        -:   15:#include<set>
+        -:   16:#include<list>
+        -:   17:#include<deque>
+        -:   18:#include<string>
+        -:   19:#include "header.hpp"
+        -:   20:
+        -:   21://#include "transaction_file_operation.cpp"
+        -:   22://#include "donor_registration.cpp"
+        -:   23://#include "Validation.cpp"
+        -:   24:using namespace std;
+        -:   25:
+        -:   26:
+        -:   27:class receiver:public blood_donation
+        -:   28:{
+        -:   29:	private:
+        -:   30:		string donor_aadhar_num;
+        -:   31:	public:
+        -:   32:		int view_receiver_queue();
+        -:   33:		int carry_out_donation();
+        -:   34:		int daily_donation_report();
+        -:   35:		int remove_daily_transaction_file();
+        -:   36:		int get_receiver_data();
+        -:   37:		string get_aadhar_num()
+        -:   38:		{
+        -:   39:			return this->aadhar_num;
+        -:   40:		}
+        -:   41:		string get_name()
+        -:   42:		{
+        -:   43:			return this->name;
+        -:   44:		}
+        -:   45:		string get_blood_group()
+        -:   46:		{
+        -:   47:			return this->blood_group;
+        -:   48:		}
+        -:   49:};
+        -:   50:
+        -:   51:deque<receiver> q;
+        -:   52:list<receiver> rl;
+        -:   53:receiver r;
+        -:   54:
+        -:   55:/*______________________________________________________________________________________*/
+        -:   56:/***************************************************************************************/
+        -:   57:
+function _ZN8receiver17get_receiver_dataEv called 3 returned 100% blocks executed 61%
+        3:   58:int receiver::get_receiver_data()
+        -:   59:{
+        3:   60:	system("clear");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   61:	//....Aadhar validation...........
+        -:   62:	while(1)
+        -:   63:	{
+       3*:   64:		cout<<endl<<"Enter your Aadhar number-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   65:		cin>>aadhar_num;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:   66:		if(aadhar_validation(aadhar_num)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:   67:			break;
+        -:   68:		else
+    #####:   69:			continue;
+        -:   70:	}
+        -:   71:
+        -:   72:	//....Name validation.............
+        -:   73:	while(1)
+        -:   74:	{
+       3*:   75:		cout<<endl<<"Enter your name-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   76:		getline(cin>>ws,name);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+       3*:   77:		if(name_validation(name)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:   78:			break;
+        -:   79:		else
+    #####:   80:			continue;
+        -:   81:	}
+        -:   82:
+        -:   83:	//....Address validation..........
+        -:   84:	while(1)
+        -:   85:	{
+       3*:   86:		cout<<endl<<"Enter your address-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   87:		getline(cin,address);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:   88:		if(address_validation(address)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:   89:			break;
+        -:   90:		else
+    #####:   91:			continue;
+        -:   92:	}
+        -:   93:
+        -:   94:	//....Age validation...............
+        -:   95:	while(1)
+        -:   96:	{
+       3*:   97:		cout<<endl<<"Enter your age-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   98:		cin>>age;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:   99:		if(age_validation(age)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  100:			break;
+        -:  101:		else
+    #####:  102:			continue;
+        -:  103:	}
+        -:  104:
+        -:  105:	//....Blood group validation........
+        6:  106:              string ch;
+call    0 returned 3
+call    1 returned 3
+call    2 never executed
+        -:  107:			while(1)
+        -:  108:			{
+       3*:  109:				cout<<endl<<"Blood Groups -";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  110:				cout<<endl<<"1.A+	5.O+";	
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  111:				cout<<endl<<"2.A-	6.O-";	
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  112:				cout<<endl<<"3.B+	7.AB+";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  113:				cout<<endl<<"4.B-	8.AB-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  114:			        	
+        3:  115:				cout<<endl<<"Enter your choice(1-8) for blood group from above  data-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  116:				cin>>ch;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  117:				
+       3*:  118:				if(blood_group_validation(ch)==true)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0
+call    9 never executed
+        3:  119:					break;
+        -:  120:				else
+    #####:  121:					continue;
+        -:  122:			}
+       51:  123:			string bg[8]={"A+","A-","B+","B-","O+","O-","AB+","AB-"};
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+call    8 returned 3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 3
+call   13 returned 3
+branch 14 taken 3 (fallthrough)
+branch 15 taken 0 (throw)
+call   16 returned 3
+call   17 returned 3
+branch 18 taken 3 (fallthrough)
+branch 19 taken 0 (throw)
+call   20 returned 3
+call   21 returned 3
+branch 22 taken 3 (fallthrough)
+branch 23 taken 0 (throw)
+call   24 returned 3
+call   25 returned 3
+branch 26 taken 3 (fallthrough)
+branch 27 taken 0 (throw)
+call   28 returned 3
+call   29 returned 3
+branch 30 taken 3 (fallthrough)
+branch 31 taken 0 (throw)
+branch 32 taken 24 (fallthrough)
+branch 33 taken 3
+call   34 returned 24
+call   35 never executed
+branch 36 never executed
+branch 37 never executed
+call   38 never executed
+        3:  124:			blood_group=bg[stoi(ch)-1];
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  125:	int units;
+        -:  126:	while(1)
+        -:  127:	{
+       3*:  128:		cout<<endl<<"Enter units of blood-";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  129:		cin>>units;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:  130:		if(units>3 || units<1)
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+        -:  131:		{
+    #####:  132:			cout<<endl<<"Please enter units between 1-3";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  133:			continue;
+        -:  134:		}
+        -:  135:		else
+        -:  136:			break;
+        -:  137:	}
+        3:  138:	system("clear");
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  139:	cout<<endl<<"____________________________________________________________________________________________"<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  140:	cout<<endl<<"********************************************************************************************"<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        -:  141:
+        3:  142:	cout<<endl<<"----------------------LIST OF DONOR---(BLOOD_GROUP)---"<<blood_group<<"---------------------"<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
+branch 14 taken 0 (throw)
+        -:  143:
+        3:  144:	cout<<endl<<"********************************************************************************************"<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        -:  145:
+        3:  146:	cout<<endl<<setw(10)<<"AADHAR_NO."<<setw(12)<<"NAME"<<setw(12)<<"AGE"<<setw(12)<<"ADDRESS"<<setw(15)<<"BLOOD_GROUP"<<setw(18)<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 returned 3
+branch  5 taken 3 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 3
+branch  8 taken 3 (fallthrough)
+branch  9 taken 0 (throw)
+call   10 returned 3
+call   11 returned 3
+branch 12 taken 3 (fallthrough)
+branch 13 taken 0 (throw)
+call   14 returned 3
+branch 15 taken 3 (fallthrough)
+branch 16 taken 0 (throw)
+call   17 returned 3
+call   18 returned 3
+branch 19 taken 3 (fallthrough)
+branch 20 taken 0 (throw)
+call   21 returned 3
+branch 22 taken 3 (fallthrough)
+branch 23 taken 0 (throw)
+call   24 returned 3
+call   25 returned 3
+branch 26 taken 3 (fallthrough)
+branch 27 taken 0 (throw)
+call   28 returned 3
+branch 29 taken 3 (fallthrough)
+branch 30 taken 0 (throw)
+call   31 returned 3
+call   32 returned 3
+branch 33 taken 3 (fallthrough)
+branch 34 taken 0 (throw)
+call   35 returned 3
+branch 36 taken 3 (fallthrough)
+branch 37 taken 0 (throw)
+call   38 returned 3
+call   39 returned 3
+branch 40 taken 3 (fallthrough)
+branch 41 taken 0 (throw)
+call   42 returned 3
+branch 43 taken 3 (fallthrough)
+branch 44 taken 0 (throw)
+        3:  147:	flag=0;
+        6:  148:	string str;
+call    0 returned 3
+call    1 returned 3
+call    2 never executed
+        3:  149:	int flag1=0;
+        3:  150:	if(q.empty())
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+        -:  151:	{
+        -:  152:
+        2:  153:		for(auto it:l)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 2
+branch  3 taken 1 (fallthrough)
+branch  4 taken 1
+call    5 returned 1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 1
+call   10 returned 1
+call   11 never executed
+        -:  154:		{
+        1:  155:			if(it.get_blood_group()==blood_group)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0
+        -:  156:			{
+        1:  157:				flag=1;
+        1:  158:				flag1=1;
+        1:  159:				cout<<setw(10)<<it.get_aadhar_num()<<setw(12)<<it.get_name()<<setw(12)<<it.get_age()<<setw(12)<<it.get_address()<<setw(15)<<it.get_blood_group()<<setw(18)<<endl;
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+call   10 returned 1
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+call   14 returned 1
+branch 15 taken 1 (fallthrough)
+branch 16 taken 0 (throw)
+call   17 returned 1
+branch 18 taken 1 (fallthrough)
+branch 19 taken 0 (throw)
+call   20 returned 1
+call   21 returned 1
+branch 22 taken 1 (fallthrough)
+branch 23 taken 0 (throw)
+call   24 returned 1
+branch 25 taken 1 (fallthrough)
+branch 26 taken 0 (throw)
+call   27 returned 1
+branch 28 taken 1 (fallthrough)
+branch 29 taken 0 (throw)
+call   30 returned 1
+call   31 returned 1
+branch 32 taken 1 (fallthrough)
+branch 33 taken 0 (throw)
+call   34 returned 1
+branch 35 taken 1 (fallthrough)
+branch 36 taken 0 (throw)
+call   37 returned 1
+branch 38 taken 1 (fallthrough)
+branch 39 taken 0 (throw)
+call   40 returned 1
+call   41 returned 1
+branch 42 taken 1 (fallthrough)
+branch 43 taken 0 (throw)
+call   44 returned 1
+branch 45 taken 1 (fallthrough)
+branch 46 taken 0 (throw)
+call   47 returned 1
+branch 48 taken 1 (fallthrough)
+branch 49 taken 0 (throw)
+call   50 returned 1
+call   51 returned 1
+branch 52 taken 1 (fallthrough)
+branch 53 taken 0 (throw)
+call   54 returned 1
+branch 55 taken 1 (fallthrough)
+branch 56 taken 0 (throw)
+call   57 returned 1
+call   58 returned 1
+call   59 returned 1
+call   60 returned 1
+call   61 returned 1
+call   62 never executed
+call   63 never executed
+call   64 never executed
+call   65 never executed
+call   66 never executed
+        -:  160:			}
+        -:  161:		}
+        -:  162:	}
+        -:  163:	else
+        -:  164:	{
+        2:  165:		flag=0;
+       2*:  166:		for(auto qu:q)
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0
+call    5 returned 2
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 never executed
+        -:  167:		{
+        2:  168:			if(qu.blood_group==blood_group)
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0
+        -:  169:			{
+        2:  170:				flag=1;
+        2:  171:				break;
+        -:  172:			}
+        -:  173:		}
+        2:  174:		if(flag==0)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+        -:  175:		{
+    #####:  176:			for(auto dl:l)
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+call    9 never executed
+call   10 never executed
+call   11 never executed
+        -:  177:			{
+    #####:  178:				if(dl.get_blood_group()==blood_group)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+        -:  179:				{
+    #####:  180:					flag=1;
+    #####:  181:					flag1=1;
+    #####:  182:					cout<<setw(10)<<dl.get_aadhar_num()<<setw(12)<<dl.get_name()<<setw(12)<<dl.get_age()<<setw(12)<<dl.get_address()<<setw(15)<<dl.get_blood_group()<<setw(18)<<endl;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+branch 28 never executed
+branch 29 never executed
+call   30 never executed
+call   31 never executed
+branch 32 never executed
+branch 33 never executed
+call   34 never executed
+branch 35 never executed
+branch 36 never executed
+call   37 never executed
+branch 38 never executed
+branch 39 never executed
+call   40 never executed
+call   41 never executed
+branch 42 never executed
+branch 43 never executed
+call   44 never executed
+branch 45 never executed
+branch 46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+call   50 never executed
+call   51 never executed
+branch 52 never executed
+branch 53 never executed
+call   54 never executed
+branch 55 never executed
+branch 56 never executed
+call   57 never executed
+call   58 never executed
+call   59 never executed
+call   60 never executed
+call   61 never executed
+call   62 never executed
+call   63 never executed
+call   64 never executed
+call   65 never executed
+call   66 never executed
+        -:  183:				}
+        -:  184:			}
+        -:  185:		
+        -:  186:		}
+        -:  187:		else
+        -:  188:		{				
+        5:  189:			for(auto it:l)
+call    0 returned 2
+call    1 returned 2
+call    2 returned 5
+branch  3 taken 3 (fallthrough)
+branch  4 taken 2
+call    5 returned 3
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 3
+call   10 returned 3
+call   11 never executed
+        -:  190:			{
+        3:  191:				flag=0;
+        6:  192:				for(auto it1:q)
+call    0 returned 3
+call    1 returned 3
+call    2 returned 6
+branch  3 taken 3 (fallthrough)
+branch  4 taken 3
+call    5 returned 3
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 3
+call   10 never executed
+        -:  193:				{
+        -:  194:					//flag=0;
+        3:  195:					if(it.get_aadhar_num()==it1.donor_aadhar_num)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 returned 3
+branch  5 taken 0 (fallthrough)
+branch  6 taken 3
+        -:  196:					{
+    #####:  197:						flag=0;
+    #####:  198:						break;
+        -:  199:					}
+        -:  200:					else
+        -:  201:					{
+        3:  202:						if(it.get_blood_group()==blood_group)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+call    4 returned 3
+branch  5 taken 1 (fallthrough)
+branch  6 taken 2
+        -:  203:						{
+        1:  204:							flag=1;
+        1:  205:							continue;
+        -:  206:						}
+        -:  207:						//else
+        -:  208:							//flag=0;
+        -:  209:					}
+        -:  210:				}
+        3:  211:				if(flag==1)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        -:  212:				{
+        1:  213:					flag1=1;
+        -:  214:				
+        1:  215:					cout<<setw(10)<<it.get_aadhar_num()<<setw(12)<<it.get_name()<<setw(12)<<it.get_age()<<setw(12)<<it.get_address()<<setw(15)<<it.get_blood_group()<<setw(18)<<endl;
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+call   10 returned 1
+call   11 returned 1
+branch 12 taken 1 (fallthrough)
+branch 13 taken 0 (throw)
+call   14 returned 1
+branch 15 taken 1 (fallthrough)
+branch 16 taken 0 (throw)
+call   17 returned 1
+branch 18 taken 1 (fallthrough)
+branch 19 taken 0 (throw)
+call   20 returned 1
+call   21 returned 1
+branch 22 taken 1 (fallthrough)
+branch 23 taken 0 (throw)
+call   24 returned 1
+branch 25 taken 1 (fallthrough)
+branch 26 taken 0 (throw)
+call   27 returned 1
+branch 28 taken 1 (fallthrough)
+branch 29 taken 0 (throw)
+call   30 returned 1
+call   31 returned 1
+branch 32 taken 1 (fallthrough)
+branch 33 taken 0 (throw)
+call   34 returned 1
+branch 35 taken 1 (fallthrough)
+branch 36 taken 0 (throw)
+call   37 returned 1
+branch 38 taken 1 (fallthrough)
+branch 39 taken 0 (throw)
+call   40 returned 1
+call   41 returned 1
+branch 42 taken 1 (fallthrough)
+branch 43 taken 0 (throw)
+call   44 returned 1
+branch 45 taken 1 (fallthrough)
+branch 46 taken 0 (throw)
+call   47 returned 1
+branch 48 taken 1 (fallthrough)
+branch 49 taken 0 (throw)
+call   50 returned 1
+call   51 returned 1
+branch 52 taken 1 (fallthrough)
+branch 53 taken 0 (throw)
+call   54 returned 1
+branch 55 taken 1 (fallthrough)
+branch 56 taken 0 (throw)
+call   57 returned 1
+call   58 returned 1
+call   59 returned 1
+call   60 returned 1
+call   61 returned 1
+call   62 never executed
+call   63 never executed
+call   64 never executed
+call   65 never executed
+call   66 never executed
+        -:  216:				}
+        -:  217:			}
+        -:  218:		}
+        -:  219:
+        -:  220:	}
+        3:  221:	cout<<endl<<"____________________________________________________________________________________________";
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:  222:	cout<<endl<<"********************************************************************************************"<<endl;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
+branch  8 taken 0 (throw)
+        3:  223:	if(flag1==0)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        -:  224:	{
+        1:  225:		cout<<endl<<"--------------Donor of blood group "<<blood_group<<" not available.--------------"<<endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+call   12 returned 1
+branch 13 taken 1 (fallthrough)
+branch 14 taken 0 (throw)
+        -:  226:
+        1:  227:		cout<<endl<<"********************************************************************************************"<<endl;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  228:		return EXIT_FAILURE;
+        -:  229:	}
+        -:  230://	system("read a");
+        -:  231:	//system("clear");
+        2:  232:	flag=0;
+        -:  233:	while(1)
+        -:  234:	{
+        2:  235:		cout<<endl<<"Enter aadhar number of donor you want to select-";
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:  236:		cin>>donor_aadhar_num;
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        3:  237:		for(list<donor>::iterator it=l.begin();it!=l.end();it++)
+call    0 returned 2
+call    1 returned 3
+call    2 returned 3
+branch  3 taken 3 (fallthrough)
+branch  4 taken 0
+call    5 returned 1
+        -:  238:		{
+        3:  239:			if(it->get_blood_group()==blood_group && it->get_aadhar_num()==donor_aadhar_num)
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+call    4 returned 3
+branch  5 taken 2 (fallthrough)
+branch  6 taken 1
+call    7 returned 2
+call    8 returned 2
+branch  9 taken 2 (fallthrough)
+branch 10 taken 0 (throw)
+call   11 returned 2
+branch 12 taken 2 (fallthrough)
+branch 13 taken 0
+branch 14 taken 2 (fallthrough)
+branch 15 taken 1
+call   16 returned 2
+branch 17 taken 3 (fallthrough)
+branch 18 taken 0
+call   19 returned 3
+branch 20 taken 2 (fallthrough)
+branch 21 taken 1
+branch 22 never executed
+branch 23 never executed
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+        -:  240:			{
+        2:  241:				flag=1;
+        2:  242:				it->set_units_donated(units);
+call    0 returned 2
+call    1 returned 2
+        2:  243:				break;
+        -:  244:			}
+        -:  245:		}
+       2*:  246:		if(flag==0)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+        -:  247:		{
+    #####:  248:			cout<<endl<<"********Please enter correct aadhar number.*********";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  249:			continue;
+        -:  250:
+        -:  251:		}
+        -:  252:		else
+        2:  253:			break;
+    #####:  254:	}
+        2:  255:	system("read a");
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  256:	system("clear");
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  257:
+        2:  258:	return EXIT_SUCCESS;
+        -:  259:}
+        -:  260:
+        -:  261:/********************************************************************************************************/

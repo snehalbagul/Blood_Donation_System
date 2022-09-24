@@ -1,0 +1,746 @@
+        -:    0:Source:submenu.cpp
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    1:/***************************************************************************************************************
+        -:    2: ** FUNCTION NAME    :    submenu
+        -:    3: **
+        -:    4: ** DESCRIPTION      :    This file defines the function which send external message for refer and 
+        -:    5:                          this file is included in main file
+        -:    6: **
+        -:    7: **
+        -:    8: ** REVISION HISTORY :
+        -:    9: **  DATE                              NAME                                 REASON
+        -:   10: ** ------------------------------------------------------------------------------------------------------------
+        -:   11: **  19 SEPTEMBER 2022                 DOLLY SALUJA                         To make submenu file 
+        -:   12: **  21 SEPTEMBER 2022                 NIDHI DUBEY                          To make changes in header of the file
+        -:   13: ***************************************************************************************************************/
+        -:   14:#include<iostream>
+        -:   15:#include<iomanip>
+        -:   16:#include<thread>
+        -:   17:using namespace std;
+        -:   18:
+        -:   19://donor d;
+        -:   20:donor *dr=&d;
+        -:   21://receiver r;
+        -:   22:receiver *rc=&r;
+        -:   23:int (donor::*p1[5])()={&donor::edit_donor_data,&donor::remove_donor_data,&donor::view_donor_data,&donor::view_all_donor_data,&donor::five_highest_donor_report};
+        -:   24:
+        -:   25:int (receiver::*p2[3])()={&receiver::view_receiver_queue,&receiver::remove_daily_transaction_file,&receiver::daily_donation_report};//,&receiver::carry_out_donation};
+        -:   26:
+        -:   27:receiver *rec;
+        -:   28:
+        -:   29:string choice1="",choice2="";
+        -:   30:
+function _Z7submenuv called 2 returned 100% blocks executed 60%
+        2:   31:bool submenu()
+        -:   32:{
+        -:   33:
+        2:   34:	choice1="";
+call    0 returned 2
+        2:   35:	if(employee_validation()!=0)
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+        -:   36:	{
+    #####:   37:		cout<<"Invalid password!!!"<<endl;
+call    0 never executed
+call    1 never executed
+        -:   38:		//system("clear");
+    #####:   39:		return false;
+        -:   40:	}
+        7:   41:	while(choice1!="6")
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0
+        -:   42:	{
+        7:   43:		system("clear");
+call    0 returned 7
+        7:   44:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+        7:   45:		cout<<endl<<"                         THE EMPLOYEE CORNER"<<endl;
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+        7:   46:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+        7:   47:		cout<<"1.Manage donor database "<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   48:		cout<<"2.Report Corner"<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   49:		cout<<"3.View Reciever's Queue."<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   50:		cout<<"4.Empty daily transaction file."<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   51:		cout<<"5.Carry out donation"<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   52:		cout<<"6.Go Back"<<endl;
+call    0 returned 7
+call    1 returned 7
+        7:   53:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 7
+call    1 returned 7
+call    2 returned 7
+        7:   54:		cout<<endl<<"Enter your choice-";
+call    0 returned 7
+call    1 returned 7
+        7:   55:		cin>>choice1;
+call    0 returned 7
+        -:   56:
+        -:   57:		try
+        -:   58:		{
+       14:   59:			for(int i=0;i<choice1.length();i++)
+call    0 returned 14
+branch  1 taken 7 (fallthrough)
+branch  2 taken 7
+        -:   60:			{
+        7:   61:				if(!isdigit(choice1[i]))
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 7
+    #####:   62:					throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:   63:			}
+        -:   64:		}
+    =====:   65:		catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:   66:		{
+    =====:   67:			cout<<endl<<"Please enter only digits in choice.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:   68:			continue;
+        -:   69:		}
+        -:   70:		try
+        -:   71:		{
+       7*:   72:			if(stoi(choice1)<1 || stoi(choice1)>6)
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 7 (fallthrough)
+branch  4 taken 0
+call    5 returned 7
+branch  6 taken 7 (fallthrough)
+branch  7 taken 0 (throw)
+branch  8 taken 0 (fallthrough)
+branch  9 taken 7
+branch 10 taken 0 (fallthrough)
+branch 11 taken 7
+    #####:   73:				throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:   74:		}
+    =====:   75:		catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:   76:		{
+    =====:   77:			cout<<endl<<"Please enter choice between 1-6";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:   78:			continue;
+        -:   79:		}
+        -:   80:
+        7:   81:		if(choice1=="1")
+call    0 returned 7
+branch  1 taken 1 (fallthrough)
+branch  2 taken 6
+        -:   82:		{
+        1:   83:			manage_donor_menu();
+call    0 returned 1
+        1:   84:			continue;
+        -:   85:		}
+        6:   86:		if(choice1=="2")
+call    0 returned 6
+branch  1 taken 1 (fallthrough)
+branch  2 taken 5
+        -:   87:		{
+        1:   88:			report_corner_menu();
+call    0 returned 1
+        -:   89:
+        -:   90:		}
+        5:   91:		else if(stoi(choice1)>2 && stoi(choice1)<5)
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0
+call    3 returned 5
+branch  4 taken 2 (fallthrough)
+branch  5 taken 3
+branch  6 taken 2 (fallthrough)
+branch  7 taken 3
+        -:   92:		{
+       2*:   93:			(rc->*p2[stoi(choice1)-3])();
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+call    3 returned 2
+        -:   94:		}
+        3:   95:		else if(choice1=="5")
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+        -:   96:		{
+        2:   97:			thread t2(&receiver::carry_out_donation,receiver());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 1
+call    7 returned 1
+call    8 never executed
+        1:   98:			t2.join();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   99:		}
+        -:  100:		else
+        2:  101:			break;
+        -:  102:
+        4:  103:		system("read a");
+call    0 returned 4
+        4:  104:		system("clear");
+call    0 returned 4
+        -:  105:	}
+        2:  106:	return true;
+        -:  107:}
+        -:  108:
+function _Z17manage_donor_menuv called 1 returned 100% blocks executed 58%
+        1:  109:int manage_donor_menu()
+        -:  110:{
+        -:  111:
+        1:  112:	choice1="",choice2="";
+call    0 returned 1
+call    1 returned 1
+        -:  113:
+        4:  114:	while(choice1!="4")
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0
+        -:  115:	{
+        4:  116:		system("clear");
+call    0 returned 4
+        4:  117:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+        4:  118:		cout<<endl<<"                          MANAGING DONOR DATABASE"<<endl;
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+        4:  119:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+        4:  120:		cout<<"1.Edit"<<endl;
+call    0 returned 4
+call    1 returned 4
+        4:  121:		cout<<"2.Remove"<<endl;
+call    0 returned 4
+call    1 returned 4
+        4:  122:		cout<<"3.View"<<endl;
+call    0 returned 4
+call    1 returned 4
+        4:  123:		cout<<"4.Exit"<<endl;
+call    0 returned 4
+call    1 returned 4
+        4:  124:		cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 4
+call    1 returned 4
+call    2 returned 4
+        4:  125:		cout<<endl<<"Enter your choice-";
+call    0 returned 4
+call    1 returned 4
+        -:  126:
+        4:  127:		cin>>choice1;
+call    0 returned 4
+        -:  128:
+        -:  129:
+        -:  130:		try
+        -:  131:		{
+        8:  132:			for(int i=0;i<choice1.length();i++)
+call    0 returned 8
+branch  1 taken 4 (fallthrough)
+branch  2 taken 4
+        -:  133:			{
+        4:  134:				if(!isdigit(choice1[i]))
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 4
+    #####:  135:					throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  136:			}
+        -:  137:		}
+    =====:  138:		catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  139:		{
+    =====:  140:			cout<<endl<<"Please enter only digits in choice.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:  141:			continue;
+        -:  142:		}
+        -:  143:
+        -:  144:		try
+        -:  145:		{
+       4*:  146:			if(stoi(choice1)<1 || stoi(choice1)>4)
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 4 (fallthrough)
+branch  4 taken 0
+call    5 returned 4
+branch  6 taken 4 (fallthrough)
+branch  7 taken 0 (throw)
+branch  8 taken 0 (fallthrough)
+branch  9 taken 4
+branch 10 taken 0 (fallthrough)
+branch 11 taken 4
+    #####:  147:				throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  148:		}
+    =====:  149:		catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  150:		{
+    =====:  151:			cout<<endl<<"Please enter choice between 1-6";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:  152:			continue;
+        -:  153:		}
+        -:  154:
+        4:  155:		if(stoi(choice1)>0 && stoi(choice1)<3)
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0
+call    3 returned 4
+branch  4 taken 2 (fallthrough)
+branch  5 taken 2
+branch  6 taken 2 (fallthrough)
+branch  7 taken 2
+        -:  156:		{
+       2*:  157:			(dr->*p1[stoi(choice1)-1])();
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+call    3 returned 2
+        -:  158:		}
+        2:  159:		else if(choice1=="3")
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        -:  160:		{
+        3:  161:			while(choice2!="3")
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+        -:  162:			{
+        3:  163:				system("clear");
+call    0 returned 3
+        -:  164:
+        3:  165:				cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  166:				cout<<endl<<"                                 VIEW DONOR DATA"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        -:  167:
+        3:  168:				cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  169:				cout<<"View donor records-"<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  170:				cout<<"1.Based on Aadhar number."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  171:				cout<<"2.All donor records."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  172:				cout<<"3.Go back."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  173:				cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  174:				cout<<endl<<"Enter your choice-";
+call    0 returned 3
+call    1 returned 3
+        3:  175:				cin>>choice2;
+call    0 returned 3
+        -:  176:
+        -:  177:				try
+        -:  178:				{
+        6:  179:					for(int i=0;i<choice2.length();i++)
+call    0 returned 6
+branch  1 taken 3 (fallthrough)
+branch  2 taken 3
+        -:  180:					{
+        3:  181:						if(!isdigit(choice2[i]))
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 3
+    #####:  182:						throw choice2;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  183:					}
+        -:  184:				}
+    =====:  185:				catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  186:				{
+    =====:  187:					cout<<endl<<"Please enter only digits in choice.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:  188:					continue;
+        -:  189:				}
+        -:  190:				try
+        -:  191:				{
+       3*:  192:					if(stoi(choice2)<1 || stoi(choice2)>3)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 3 (fallthrough)
+branch  4 taken 0
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+branch  8 taken 0 (fallthrough)
+branch  9 taken 3
+branch 10 taken 0 (fallthrough)
+branch 11 taken 3
+    #####:  193:						throw choice2;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  194:				}
+    =====:  195:				catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  196:				{
+    =====:  197:					cout<<endl<<"Please enter choice between 1-3";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:  198:					continue;
+        -:  199:				}
+        -:  200:
+        3:  201:				if(stoi(choice2)>0 && stoi(choice2)<3)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+call    3 returned 3
+branch  4 taken 2 (fallthrough)
+branch  5 taken 1
+branch  6 taken 2 (fallthrough)
+branch  7 taken 1
+        -:  202:				{
+       2*:  203:					(dr->*p1[stoi(choice2)+1])();
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+call    3 returned 2
+        -:  204:			        }
+        -:  205:				else
+        1:  206:					break;
+        -:  207:
+        2:  208:				system("read a");
+call    0 returned 2
+        2:  209:				system("clear");
+call    0 returned 2
+        -:  210:
+        -:  211:			}
+        -:  212:		}
+        -:  213:		else
+        1:  214:			 break;
+        -:  215:
+        3:  216:		system("read a");
+call    0 returned 3
+        3:  217:		system("clear");
+call    0 returned 3
+        -:  218:	}
+        1:  219:		return EXIT_SUCCESS;
+        -:  220:}
+        -:  221:
+function _Z18report_corner_menuv called 1 returned 100% blocks executed 57%
+        1:  222:int report_corner_menu()
+        -:  223:{
+        1:  224:		choice1="";
+call    0 returned 1
+        3:  225:		while(choice1!="3")
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+        -:  226:		{
+        3:  227:			system("clear");
+call    0 returned 3
+        -:  228:
+        3:  229:			cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  230:			cout<<endl<<"                      WELCOME TO REPORT CORNER SECTION"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        -:  231:
+        3:  232:			cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  233:			cout<<"1.Daily Donation Report."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  234:			cout<<"2.Five Highest Donor Report."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  235:			cout<<"3.Go Back."<<endl;
+call    0 returned 3
+call    1 returned 3
+        3:  236:			cout<<endl<<"*****************************************************************************"<<endl;
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+        3:  237:			cout<<endl<<"Enter your choice-";
+call    0 returned 3
+call    1 returned 3
+        3:  238:			cin>>choice1;
+call    0 returned 3
+        -:  239:
+        -:  240:
+        -:  241:			try
+        -:  242:			{
+        6:  243:				for(int i=0;i<choice1.length();i++)
+call    0 returned 6
+branch  1 taken 3 (fallthrough)
+branch  2 taken 3
+        -:  244:				{
+        3:  245:					if(!isdigit(choice1[i]))
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 0 (fallthrough)
+branch  4 taken 3
+    #####:  246:						throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  247:				}
+        -:  248:			}
+    =====:  249:			catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  250:			{
+    =====:  251:				cout<<endl<<"Please enter only digits in choice.";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    =====:  252:				continue;
+        -:  253:			}
+        -:  254:			try
+        -:  255:			{
+       3*:  256:				if(stoi(choice1)<1 || stoi(choice1)>3)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+branch  3 taken 3 (fallthrough)
+branch  4 taken 0
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+branch  8 taken 0 (fallthrough)
+branch  9 taken 3
+branch 10 taken 0 (fallthrough)
+branch 11 taken 3
+    #####:  257:					throw choice1;
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+        -:  258:			}
+    =====:  259:			catch(string a)
+branch  0 never executed
+branch  1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+call    8 never executed
+call    9 never executed
+        -:  260:			{
+    =====:  261:				cout<<endl<<"Please enter choice from 1-3";
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+        -:  262:			}
+        -:  263:
+        3:  264:			if(choice1=="1")
+call    0 returned 3
+branch  1 taken 1 (fallthrough)
+branch  2 taken 2
+       1*:  265:				(rc->*p2[2])();
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+call    2 returned 1
+        2:  266:			else if(choice1=="2")
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+       1*:  267:				(dr->*p1[stoi(choice1)+2])();
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+call    3 returned 1
+        -:  268:			else
+        1:  269:				break;
+        -:  270:
+        2:  271:			system("read a");
+call    0 returned 2
+        2:  272:			system("clear");
+call    0 returned 2
+        -:  273:		}
+        1:  274:		return 0;
+        -:  275:}
+        -:  276:
+        -:  277:
+        -:  278:
+        -:  279:
+        -:  280:
+        -:  281:
