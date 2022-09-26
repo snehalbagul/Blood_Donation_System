@@ -28,7 +28,7 @@ VALCPP = Validation.cpp
 
 
 test : $(OBJS)
-	$(C) -o $(OBJS) $(SUBO) $(DR) $(RR) $(RRO) $(MDD) $(RP) $(EV) $(DFO) $(RFO) $(VALCPP)
+	$(C) -o $(OBJS) $(SUBO) $(DR) $(RR) $(RRO) $(MDD) $(RP) $(EV) $(DFO) $(RFO) $(VALO) $(PT)
 
 main.o : main.cpp
 	$(C) -c  $(MCPP)
