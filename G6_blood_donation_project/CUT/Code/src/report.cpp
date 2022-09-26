@@ -15,6 +15,8 @@
 #include<fstream>
 #include<algorithm>
 #include<string>
+//#include "class.hpp"
+#include "header.hpp"
 using namespace std;
 
 

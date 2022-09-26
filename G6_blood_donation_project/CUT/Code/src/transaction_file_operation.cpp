@@ -10,8 +10,11 @@
  ******************************************************************************************************************/
 
 #include<iostream>
+#include<fstream>
 #include<iomanip>
-//#include "header.hpp"
+#include<string.h>
+//#include "class.hpp"
+#include "header.hpp"
 using namespace std;
 
 /**************************************TRANSACTION FILE TO LIST*************************************************/

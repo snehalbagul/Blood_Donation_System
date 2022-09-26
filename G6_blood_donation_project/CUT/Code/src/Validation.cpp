@@ -20,17 +20,18 @@ using namespace std;
 
 bool aadhar_validation(char* aadhar_num)
 {
+	int length=sizeof(aadhar_num)/sizeof(aadhar_num[0]);
 
 	try
 	{
 		for(int i=0;aadhar_num[i]!='\0';i++)
 		{
-			if(isdigit(aadhar_num[i])!=1)
+			if(!isdigit(aadhar_num[i]))
 				throw aadhar_num;
 
 		}
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"Aadhar number should be only in digits."<<endl;
 		return false;
@@ -39,10 +40,10 @@ bool aadhar_validation(char* aadhar_num)
 	try
 	{
 
-		if(sizeof(aadhar_num)!=6)
+		if(strlen(aadhar_num)!=6)
 			throw aadhar_num;
 	}
-	catch(string a)
+	catch(const char* a)
 
 	{
 		cout<<"Aadhar number should be of 6 digits only."<<endl;
@@ -58,14 +59,14 @@ bool name_validation(char* name)
 	//transform(name.begin(),name.end(),name.begin(), ::toupper);
 	try
 	{
-		for(int i=0;i<sizeof(name);i++)
+		for(int i=0;name[i]!='\0';i++)
 		{
 
-			if(isalpha(name[i])==0)
+			if(!isalpha(name[i]))
 				throw name;
 		}
 	}
-	catch(string a)
+	catch(const char*  a)
 	{
 		cout<<"Name should be in only alphabets(A-Z)."<<endl;
 		return false;
@@ -74,10 +75,10 @@ bool name_validation(char* name)
 	try
 	{
 
-		if(sizeof(name)>20||sizeof(name)<3)
+		if(strlen(name)>20||strlen(name)<3)
 			throw name;
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"Name should be maximum 20 characters. and min 5 characters"<<endl;
 		return false;
@@ -90,13 +91,13 @@ bool name_validation(char* name)
 // address validation
 bool address_validation(char* address)
 {
-	int length=sizeof(address);
+	int length=strlen(address);
 	try
 	{
 		if(length>50 || length<5)
 			throw address;
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"Address should be more than 5 characters and less than 50 characters."<<endl;
 		return false;
@@ -119,7 +120,7 @@ bool age_validation(char* age)
 				throw age;
 		}
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"Age should be only in digits."<<endl;
 		return false;
@@ -131,7 +132,7 @@ bool age_validation(char* age)
 		if(stoi(age)>50 || stoi(age)<18)
 			throw age;
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"Age should be between 18-50."<<endl;
 		return false;
@@ -141,14 +142,14 @@ bool age_validation(char* age)
 }
 
 // blood group validation
-bool blood_group_validation(string ch)
+bool blood_group_validation(char* ch)
 {
 	try
 	{
-		if(ch.length()!=1)
+		if(strlen(ch)!=1)
 			throw ch;
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<endl<<"Choice should be of only 1 digit.";
 		return false;
@@ -158,19 +159,19 @@ bool blood_group_validation(string ch)
 		if(!isdigit(ch[0]))
 			throw ch;
 	}
-	catch(string b)
+	catch(const char* b)
 	{
 		cout<<endl<<"Choice should be only digit.";
 		return false;
 	}
 	try
 	{
-		if(stoi(ch)<1 || stoi(ch)>8)
+		if(atoi(ch)<1 || atoi(ch)>8)
 		{
 			throw ch;
 		}
 	}
-	catch(string c)
+	catch(const char* c)
 	{
 		cout<<endl<<"Choice should be between 1-8";
 		return false;
@@ -187,7 +188,7 @@ bool medical_clearance_validation(char* medical_clear)
 		if(medical_clear[0]!='Y' && medical_clear[0]!='y')
 			throw medical_clear;
 	}
-	catch(string a)
+	catch(const char* a)
 	{
 		cout<<"You should enter  only Y/y for medical clearance"<<endl;
 		return false;

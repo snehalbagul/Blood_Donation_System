@@ -15,10 +15,12 @@
 #include<string>
 #include<string.h>
 #include<stdlib.h>
+//#include "class.hpp"
 using namespace std;
 
 //-----------------------------EDIT DONOR DATA------------------------------------------
 
+// int flag=0;
 int donor::edit_donor_data()
 {
 	system("clear");
@@ -33,14 +35,14 @@ int donor::edit_donor_data()
 	{
 		cout<<endl<<"Enter Aadhar number of donor-";
 		cin>>a_num;
-		if(sizeof(a_num)!=6)
+		if(strlen(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits."<<endl;
 			continue;
 		}
 		for(int i=0;i<6;i++)
 		{
-			if(isdigit(a_num[i])!=1)
+			if(!isdigit(a_num[i]))
 			{
 				flag=1;
 				cout<<"Aadhar number should only digits."<<endl;
@@ -56,7 +58,7 @@ int donor::edit_donor_data()
 	for(list<donor>::iterator it=l.begin();it!=l.end();it++)
 		//for(auto it:l)
 	{
-		if(strcmp(it->aadhar_num,a_num))
+		if(strcmp(it->aadhar_num,a_num)==0)
 		{
 			flag=1;
 			cout<<endl<<"**************************************************************************************"<<endl;
@@ -129,14 +131,14 @@ int donor::remove_donor_data()
 	{
 		cout<<endl<<"Enter aadhar number of the donor whose record you want to delete-";
 		cin>>a_num;
-		if(sizeof(a_num)!=6)
+		if(strlen(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits."<<endl;
 			continue;
 		}
 		for(int i=0;i<6;i++)
 		{
-			if(isdigit(a_num[i])!=1)
+			if(!isdigit(a_num[i]))
 			{
 				flag=1;
 				cout<<"Aadhar number should only digits."<<endl;
@@ -151,7 +153,7 @@ int donor::remove_donor_data()
 	flag=0;
 	for(list<donor>::iterator it=l.begin();it!=l.end();it++)
 	{
-		if(strcmp(it->aadhar_num,a_num))
+		if(strcmp(it->aadhar_num,a_num)==0)
 		{
 			flag=1;
 			l.erase(it);
@@ -198,14 +200,14 @@ int donor::view_donor_data()
 	{
 		cout<<endl<<"Enter aadhar number of donor-";
 		cin>>a_num;
-		if(sizeof(a_num)!=6)
+		if(strlen(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits only."<<endl;
 			continue;
 		}
 		for(int i=0;i<6;i++)
 		{
-			if(isdigit(a_num[i])!=1)
+			if(!isdigit(a_num[i]))
 			{
 				flag=1;
 				cout<<"Aadhar number should be only digits."<<endl;
@@ -220,7 +222,7 @@ int donor::view_donor_data()
 	flag=0;	
 	for(auto it:l)
 	{
-		if(strcmp(it.aadhar_num,a_num))
+		if(strcmp(it.aadhar_num,a_num)==0)
 		{
 			flag=1;
 			cout<<endl<<"____________________________________________________________________________________________________"<<endl;

@@ -19,8 +19,18 @@
 #include <string>
 #include <list>
 #include <thread>
+#include "donor_registration.cpp"
+#include "donor_file_operation.cpp"
+#include "receiver_registration.cpp"
+#include "class.hpp"
+#include "receiver_related_operations.cpp"
+#include "manage_donor_data.cpp"
+#include "Validation.cpp"
+#include "employee_validation.cpp"
+#include "report.cpp"
+#include "submenu.cpp"
+#include "transaction_file_operation.cpp"
 #include "header.hpp"
-
 
 using namespace std;
 
@@ -29,7 +39,7 @@ int main()
 	
 	fstream fl1,fl2;
 	fl1.open("Donor_database",ios::in | ios::binary);
-	if(fl1)
+	if(fl1)	
 	{
 		fl1.close();
 		donor_file_to_list();

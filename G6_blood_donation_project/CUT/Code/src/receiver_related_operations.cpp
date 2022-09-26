@@ -17,6 +17,8 @@
 #include<deque>
 #include<mutex>
 #include<string>
+//#include "class.hpp"
+#include "header.hpp"
 using namespace std;
 
 /*_____________________________________________________________________________________________________________*/

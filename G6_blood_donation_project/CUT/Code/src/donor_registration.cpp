@@ -16,9 +16,9 @@
 #include<string>
 #include<string.h>
 #include<stdlib.h>
+//#include "class.hpp"
 #include "header.hpp"
 using namespace std;
-static int flag=0;
 
 //----------------------------BLOOD DONATION CLASS(BASE CLASS)------------------------
 
@@ -31,14 +31,6 @@ class blood_donation
 		char address[30];
 		char blood_group[5];
 
-		/*blood_donation()
-		{
-			aadhar_num='\0';
-			name='\0';
-			address='\0';
-			blood_group='\0';
-			age='\0';
-		}*/
 };
 
 //-------------------------------DONOR CLASS-(DERIVED CLASS)-------------------------
@@ -123,8 +115,6 @@ class donor:public blood_donation
 donor d;
 list<donor> l;
 
-
-
 /*________________________________________________________________________________________________*/
 /**************************************************************************************************/
 
@@ -146,7 +136,7 @@ int donor::get_donor_data()
 			flag=0;
 			for(auto it:l)
 			{
-				if(strcmp(it.get_aadhar_num(),aadhar_num))
+				if(strcmp(it.get_aadhar_num(),aadhar_num)==0)
 				{
 					cout<<"Aadhar number should not be duplicate."<<endl;
 					flag=1;

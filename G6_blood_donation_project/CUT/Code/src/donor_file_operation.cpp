@@ -10,9 +10,10 @@
 ******************************************************************************************************************/ 
 #include<iostream>
 #include<iomanip>
-//#include "header.hpp"
+#include<fstream>
+#include "header.hpp"
+//#include "class.hpp"
 #include<cstring>
-#include<string>
 #include<string.h>
 using namespace std;
 
@@ -45,9 +46,7 @@ int donor_file_to_list()
 			strcpy(dl.get_name(),tmp.name);
 			strcpy(dl.get_address(),tmp.address);
 			strcpy(dl.get_age(),tmp.age);
-			//int x=dl.get_units_donated();
-			//cout<<x<<endl;
-
+			strcpy(dl.get_blood_group(),tmp.blood_group);
 			*(dl.get_units_donated())=tmp.units_donated;
 			l.push_back(dl);
 			fl.read((char*)&tmp,sizeof(tmp));

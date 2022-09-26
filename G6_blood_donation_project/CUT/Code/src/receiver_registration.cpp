@@ -18,8 +18,11 @@
 #include<string.h>
 #include<string>
 #include<stdlib.h>
+//#include "class.hpp"
 #include "header.hpp"
+using namespace std;
 
+// int flag=0;
 /*************************************RECEIVER CLASS**********************************************************/
 
 class receiver:public blood_donation //Inheriting from blood donation
@@ -88,8 +91,6 @@ deque<receiver> q;
 list<receiver> rl;
 receiver r;
 
-
-
 /*_________________________________________________________________________________________________________*/
 /***********************************************************************************************************/
 
@@ -108,7 +109,7 @@ int receiver::get_receiver_data()
 			flag=0;
 			for(auto it:l)
 			{
-				if(strcmp(it.get_aadhar_num(),aadhar_num))
+				if(strcmp(it.get_aadhar_num(),aadhar_num)==0)
 				{
 					cout<<"Aadhar number should not be duplicate."<<endl;
 					flag=1;
@@ -211,7 +212,7 @@ int receiver::get_receiver_data()
 
 		for(auto it:l)
 		{
-			if(strcmp(it.get_blood_group(),blood_group))
+			if(strcmp(it.get_blood_group(),blood_group)==0)
 			{
 				flag=1;
 				flag1=1;
@@ -224,7 +225,7 @@ int receiver::get_receiver_data()
 		flag=0;
 		for(auto qu:q)
 		{
-			if(strcmp(qu.blood_group,blood_group))
+			if(strcmp(qu.blood_group,blood_group)==0)
 			{
 				flag=1;
 				break;
@@ -234,7 +235,7 @@ int receiver::get_receiver_data()
 		{
 			for(auto dl:l)
 			{
-				if(strcmp(dl.get_blood_group(),blood_group))
+				if(strcmp(dl.get_blood_group(),blood_group)==0)
 				{
 					flag=1;
 					flag1=1;
@@ -251,14 +252,14 @@ int receiver::get_receiver_data()
 				for(auto it1:q)
 				{
 					//flag=0;
-					if(strcmp(it.get_aadhar_num(),it1.donor_aadhar_num))
+					if(strcmp(it.get_aadhar_num(),it1.donor_aadhar_num)==0)
 					{
 						flag=0;
 						break;
 					}
 					else
 					{
-						if(strcmp(it.get_blood_group(),blood_group))
+						if(strcmp(it.get_blood_group(),blood_group)==0)
 						{
 							flag=1;
 							continue;
