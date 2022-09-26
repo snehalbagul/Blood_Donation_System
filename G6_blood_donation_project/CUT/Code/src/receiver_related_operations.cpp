@@ -28,7 +28,8 @@ mutex accum_mutex;
 
 int receiver::view_receiver_queue()
 {
-
+	
+	//if list is emptythen returns...
 	if(q.empty())
 	{
 		system("clear");
@@ -46,6 +47,7 @@ int receiver::view_receiver_queue()
 	}
 	system("clear");
 
+	//if list is not empty then display the receiver's queue...
 	cout<<endl<<"____________________________________________________________________________________________";
 	cout<<endl<<"********************************************************************************************";
 
@@ -54,6 +56,7 @@ int receiver::view_receiver_queue()
 	cout<<endl<<"********************************************************************************************"<<endl;
 	cout<<setw(10)<<"AADHAR NUMBER"<<setw(15)<<"NAME"<<setw(18)<<"ADDRESS"<<setw(18)<<"AGE"<<setw(22)<<"DONOR_AADHAR_NUMBER"<<setw(20)<<endl;
 
+	//traverse through each receiver object present in queue...
 	for(receiver it:q)
 	{
 		cout<<setw(10)<<it.aadhar_num<<setw(18)<<it.name<<setw(18)<<it.address<<setw(18)<<it.age<<setw(20)<<it.donor_aadhar_num<<setw(20)<<endl;
@@ -79,6 +82,8 @@ int receiver::carry_out_donation()
 {
 
 	receiver r;
+
+	//if list is empty then returns...
 	if(q.empty())
 	{
 
@@ -95,13 +100,15 @@ int receiver::carry_out_donation()
 
 		return EXIT_FAILURE;
 	}
+	//locking the process through mutex...
 	accum_mutex.lock();
 	while(!q.empty())
 	{
-		r=q.front();
+		r=q.front(); 
 		rl.push_back(r);
 		q.pop_front();
 	}
+	//unlocking the process through mutex...
 	accum_mutex.unlock();
 
 	system("clear");
@@ -133,7 +140,7 @@ int receiver::remove_daily_transaction_file()
 	cout<<endl<<"____________________________________________________________________________________________"<<endl;
 
 	cout<<endl<<"____________________________________________________________________________________________"<<endl;
-
+	//clearing the receiver list...
 	rl.clear();
 
 	cout<<endl<<"*************************************FILE DELETED*******************************************"<<endl;

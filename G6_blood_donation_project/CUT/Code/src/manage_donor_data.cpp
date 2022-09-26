@@ -13,6 +13,8 @@
 #include<set>
 #include<list>
 #include<string>
+#include<string.h>
+#include<stdlib.h>
 using namespace std;
 
 //-----------------------------EDIT DONOR DATA------------------------------------------
@@ -26,12 +28,12 @@ int donor::edit_donor_data()
 		return EXIT_FAILURE;
 	}
 	flag=0;
-	string a_num;
+	char a_num[15];
 	while(1)
 	{
 		cout<<endl<<"Enter Aadhar number of donor-";
 		cin>>a_num;
-		if(a_num.length()!=6)
+		if(sizeof(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits."<<endl;
 			continue;
@@ -54,7 +56,7 @@ int donor::edit_donor_data()
 	for(list<donor>::iterator it=l.begin();it!=l.end();it++)
 		//for(auto it:l)
 	{
-		if(it->aadhar_num==a_num)
+		if(strcmp(it->aadhar_num,a_num))
 		{
 			flag=1;
 			cout<<endl<<"**************************************************************************************"<<endl;
@@ -67,7 +69,7 @@ int donor::edit_donor_data()
 			while(1)
 			{
 				cout<<endl<<"Enter updated name-";
-				getline(cin>>ws,it->name);
+				cin>>it->name;
 				if(name_validation(it->name)==true)
 					break;
 				else
@@ -76,7 +78,7 @@ int donor::edit_donor_data()
 			while(1)
 			{
 				cout<<endl<<"Enter updated address-";
-				getline(cin>>ws,it->address);
+				cin>>it->address;
 				if(address_validation(it->address)==true)
 					break;
 				else 
@@ -122,12 +124,12 @@ int donor::remove_donor_data()
 	}
 
 	flag=0;
-	string a_num;
+	char a_num[15];
 	while(1)
 	{
 		cout<<endl<<"Enter aadhar number of the donor whose record you want to delete-";
 		cin>>a_num;
-		if(a_num.length()!=6)
+		if(sizeof(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits."<<endl;
 			continue;
@@ -149,7 +151,7 @@ int donor::remove_donor_data()
 	flag=0;
 	for(list<donor>::iterator it=l.begin();it!=l.end();it++)
 	{
-		if(it->aadhar_num==a_num)
+		if(strcmp(it->aadhar_num,a_num))
 		{
 			flag=1;
 			l.erase(it);
@@ -176,7 +178,8 @@ int donor::remove_donor_data()
 	}
 }
 
-/*______________________________________________________________________________________*//****************************************************************************************/
+/*______________________________________________________________________________________*/
+/****************************************************************************************/
 
 int donor::view_donor_data()
 {
@@ -190,12 +193,12 @@ int donor::view_donor_data()
 		return EXIT_FAILURE;
 	}
 	flag=0;
-	string a_num;
+	char a_num[15];
 	while(1)
 	{
 		cout<<endl<<"Enter aadhar number of donor-";
 		cin>>a_num;
-		if(a_num.length()!=6)
+		if(sizeof(a_num)!=6)
 		{
 			cout<<"Aadhar number should be of 6 digits only."<<endl;
 			continue;
@@ -217,7 +220,7 @@ int donor::view_donor_data()
 	flag=0;	
 	for(auto it:l)
 	{
-		if(it.aadhar_num==a_num)
+		if(strcmp(it.aadhar_num,a_num))
 		{
 			flag=1;
 			cout<<endl<<"____________________________________________________________________________________________________"<<endl;

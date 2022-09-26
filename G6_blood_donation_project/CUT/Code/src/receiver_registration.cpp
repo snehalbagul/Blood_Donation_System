@@ -15,7 +15,9 @@
 #include<set>
 #include<list>
 #include<deque>
+#include<string.h>
 #include<string>
+#include<stdlib.h>
 #include "header.hpp"
 
 /*************************************RECEIVER CLASS**********************************************************/
@@ -23,25 +25,63 @@
 class receiver:public blood_donation //Inheriting from blood donation
 {
 	private:
-		string donor_aadhar_num;
+		char donor_aadhar_num[15];
 	public:
 		int view_receiver_queue();
 		int carry_out_donation();
 		int daily_donation_report();
 		int remove_daily_transaction_file();
 		int get_receiver_data();
-		string get_aadhar_num()
+		char* get_aadhar_num()
 		{
 			return this->aadhar_num;
 		}
-		string get_name()
+		char* get_name()
 		{
 			return this->name;
 		}
-		string get_blood_group()
+		char* get_blood_group()
 		{
 			return this->blood_group;
 		}
+		char* get_donor_aadhar_num()
+		{
+			return this->donor_aadhar_num;
+		}
+		char* get_address()
+		{
+			return this->address;
+		}
+		char* get_age()
+		{
+			return this->age;
+		}
+		
+		void put_aadhar_num()
+		{
+			strcpy(this->aadhar_num,aadhar_num);
+		}
+		void put_name()
+		{
+			strcpy(this->name,name);
+		}
+		void put_address()
+		{
+			strcpy(this->address,address);
+		}
+		void put_age()
+		{
+			strcpy(this->age,age);
+		}
+		void put_blood_group()
+		{
+			strcpy(this->blood_group,blood_group);
+		}
+		void put_donor_aadhar_num()
+		{
+			strcpy(this->donor_aadhar_num,donor_aadhar_num);
+		}
+
 };
 
 deque<receiver> q;
@@ -64,7 +104,22 @@ int receiver::get_receiver_data()
 		cout<<endl<<"Enter your Aadhar number-";
 		cin>>aadhar_num;
 		if(aadhar_validation(aadhar_num)==true)
-			break;
+		{
+			flag=0;
+			for(auto it:l)
+			{
+				if(strcmp(it.get_aadhar_num(),aadhar_num))
+				{
+					cout<<"Aadhar number should not be duplicate."<<endl;
+					flag=1;
+					break;
+				}
+			}
+			if(flag==1)
+				continue;
+			else
+				break;
+		}
 		else
 			continue;
 	}
@@ -73,7 +128,7 @@ int receiver::get_receiver_data()
 	while(1)
 	{
 		cout<<endl<<"Enter your name-";
-		getline(cin>>ws,name);
+		cin>>name;
 		if(name_validation(name)==true)
 			break;
 		else
@@ -84,7 +139,7 @@ int receiver::get_receiver_data()
 	while(1)
 	{
 		cout<<endl<<"Enter your address-";
-		getline(cin,address);
+		cin>>address;
 		if(address_validation(address)==true)
 			break;
 		else
@@ -103,7 +158,7 @@ int receiver::get_receiver_data()
 	}
 
 	//....Blood group validation........
-              string ch;
+              char ch[2];
 			while(1)
 			{
 				cout<<endl<<"Blood Groups -";
@@ -120,8 +175,8 @@ int receiver::get_receiver_data()
 				else
 					continue;
 			}
-			string bg[8]={"A+","A-","B+","B-","O+","O-","AB+","AB-"};
-			blood_group=bg[stoi(ch)-1];
+			char bg[8][4]={"A+","A-","B+","B-","O+","O-","AB+","AB-"};
+			strcpy(blood_group,bg[atoi(ch)-1]);
 	int units;
 	while(1)
 	{
@@ -156,7 +211,7 @@ int receiver::get_receiver_data()
 
 		for(auto it:l)
 		{
-			if(it.get_blood_group()==blood_group)
+			if(strcmp(it.get_blood_group(),blood_group))
 			{
 				flag=1;
 				flag1=1;
@@ -169,7 +224,7 @@ int receiver::get_receiver_data()
 		flag=0;
 		for(auto qu:q)
 		{
-			if(qu.blood_group==blood_group)
+			if(strcmp(qu.blood_group,blood_group))
 			{
 				flag=1;
 				break;
@@ -179,7 +234,7 @@ int receiver::get_receiver_data()
 		{
 			for(auto dl:l)
 			{
-				if(dl.get_blood_group()==blood_group)
+				if(strcmp(dl.get_blood_group(),blood_group))
 				{
 					flag=1;
 					flag1=1;
@@ -196,14 +251,14 @@ int receiver::get_receiver_data()
 				for(auto it1:q)
 				{
 					//flag=0;
-					if(it.get_aadhar_num()==it1.donor_aadhar_num)
+					if(strcmp(it.get_aadhar_num(),it1.donor_aadhar_num))
 					{
 						flag=0;
 						break;
 					}
 					else
 					{
-						if(it.get_blood_group()==blood_group)
+						if(strcmp(it.get_blood_group(),blood_group))
 						{
 							flag=1;
 							continue;
@@ -239,7 +294,7 @@ int receiver::get_receiver_data()
 		cin>>donor_aadhar_num;
 		for(list<donor>::iterator it=l.begin();it!=l.end();it++)
 		{
-			if(it->get_blood_group()==blood_group && it->get_aadhar_num()==donor_aadhar_num)
+			if(strcmp(it->get_blood_group(),blood_group)==0 && strcmp(it->get_aadhar_num(),donor_aadhar_num)==0)
 			{
 				flag=1;
 				it->set_units_donated(units);

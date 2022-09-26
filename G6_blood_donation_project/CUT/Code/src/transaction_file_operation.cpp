@@ -11,15 +11,49 @@
 
 #include<iostream>
 #include<iomanip>
-#include "header.hpp"
+//#include "header.hpp"
 using namespace std;
 
 /**************************************TRANSACTION FILE TO LIST*************************************************/
 //Function to read data from transaction file to list...
 
+struct temp2
+{
+	char a_num[15];
+	char da_num[15];
+	char name[20];
+	char address[30];
+	char age[5];
+	char blood_group[5];
+	int units_donated;
+}tmp1;
+
+
 int transaction_file_to_list()
 {
-	receiver rec;
+	fstream fl;
+	receiver r;
+	
+	fl.open("Transaction_database",ios::in|ios::binary);
+	if(fl)
+	{
+		fl.read((char*)&tmp1,sizeof(tmp1));
+
+		while(!fl.eof())
+		{
+			strcpy(r.get_aadhar_num(),tmp1.a_num);
+			strcpy(r.get_donor_aadhar_num(),tmp1.da_num);
+			strcpy(r.get_name(),tmp1.name);
+			strcpy(r.get_address(),tmp1.address);
+			strcpy(r.get_age(),tmp1.age);
+			rl.push_back(r);
+			fl.read((char*)&tmp1,sizeof(tmp1));
+		}
+
+	}
+	fl.close();
+	return EXIT_SUCCESS;
+	/*receiver rec;
 	fstream fl;
 	fl.open("Transaction_database",ios::in|ios::binary);
 	if(!fl)
@@ -36,7 +70,7 @@ int transaction_file_to_list()
 	fl.close();
 
 	//cout<<"not available."<<endl;
-	return EXIT_SUCCESS;
+	return EXIT_SUCCESS;*/
 }
 
 /**************************************LIST TO TRANSACTION FILE*************************************************/
@@ -44,7 +78,26 @@ int transaction_file_to_list()
 
 int list_to_transaction_file()
 {
-	receiver rec;
+	fstream fl;
+	if(!rl.empty())
+	{
+		fl.open("Transaction_database",ios::out);
+		for(list<receiver>::iterator it=rl.begin();it!=rl.end();it++)
+		{
+			strcpy(tmp1.a_num,it->get_aadhar_num());
+			strcpy(tmp1.da_num,it->get_donor_aadhar_num());
+			strcpy(tmp1.name,it->get_name());
+			strcpy(tmp1.address,it->get_address());
+			strcpy(tmp1.age,it->get_age());
+			strcpy(tmp1.blood_group,it->get_blood_group());
+			fl.write((char*)&tmp1,sizeof(tmp1));
+
+		}
+		fl.close();
+		return EXIT_SUCCESS;
+	}
+	return EXIT_FAILURE;
+	/*receiver rec;
 	fstream fl;
 	fl.open("Transacton_database",ios::out|ios::binary);
 	if(!fl)
@@ -59,7 +112,7 @@ int list_to_transaction_file()
 	fl.close();
 	rl.clear();
 	//cout<<"not available."<<endl;
-	return EXIT_SUCCESS;
+	return EXIT_SUCCESS;*/
 }
 
 /************************************************************************************************************/

@@ -19,7 +19,8 @@
 #include <string>
 #include <list>
 #include <thread>
-#include "donor_registration.cpp"
+#include "header.hpp"
+/*#include "donor_registration.cpp"
 #include "receiver_registration.cpp"
 #include "transaction_file_operation.cpp"
 #include "donor_file_operation.cpp"
@@ -29,6 +30,7 @@
 #include "submenu.cpp"
 #include "manage_donor_data.cpp"
 #include "receiver_related_operations.cpp"
+#include "Validation.cpp"*/
 
 using namespace std;
 

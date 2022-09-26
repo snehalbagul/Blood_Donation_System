@@ -12,20 +12,18 @@
 
 #include<iostream>
 #include<iomanip>
+#include<string.h>
 #include<string>
-//#include "header.hpp"
-//#include "donor_registration.cpp"
-//#include "receiver_registration.cpp"
 using namespace std;
 
 // aadhar validation
 
-bool aadhar_validation(string aadhar_num)
+bool aadhar_validation(char* aadhar_num)
 {
 
 	try
 	{
-		for(int i=0;i<aadhar_num.length();i++)
+		for(int i=0;aadhar_num[i]!='\0';i++)
 		{
 			if(isdigit(aadhar_num[i])!=1)
 				throw aadhar_num;
@@ -41,7 +39,7 @@ bool aadhar_validation(string aadhar_num)
 	try
 	{
 
-		if(aadhar_num.length()!=6)
+		if(sizeof(aadhar_num)!=6)
 			throw aadhar_num;
 	}
 	catch(string a)
@@ -55,12 +53,12 @@ bool aadhar_validation(string aadhar_num)
 }
 
 // name validation
-bool name_validation(string name)
+bool name_validation(char* name)
 {
 	//transform(name.begin(),name.end(),name.begin(), ::toupper);
 	try
 	{
-		for(int i=0;i<name.length();i++)
+		for(int i=0;i<sizeof(name);i++)
 		{
 
 			if(isalpha(name[i])==0)
@@ -76,7 +74,7 @@ bool name_validation(string name)
 	try
 	{
 
-		if(name.length()>20||name.length()<3)
+		if(sizeof(name)>20||sizeof(name)<3)
 			throw name;
 	}
 	catch(string a)
@@ -90,9 +88,9 @@ bool name_validation(string name)
 
 
 // address validation
-bool address_validation(string address)
+bool address_validation(char* address)
 {
-	int length=address.length();
+	int length=sizeof(address);
 	try
 	{
 		if(length>50 || length<5)
@@ -110,11 +108,11 @@ bool address_validation(string address)
 }
 
 // age validation
-bool age_validation(string age)
+bool age_validation(char* age)
 {
 	try
 	{
-		for(int i=0;i<age.length();i++)
+		for(int i=0;age[i]!='\0';i++)
 		{
 
 			if(isdigit(age[i])!=1)
@@ -182,11 +180,11 @@ bool blood_group_validation(string ch)
 }
 
 //medical clearance validation
-bool medical_clearance_validation(string medical_clear)
+bool medical_clearance_validation(char* medical_clear)
 {
 	try
 	{
-		if(medical_clear!="Y" && medical_clear!="y")
+		if(medical_clear[0]!='Y' && medical_clear[0]!='y')
 			throw medical_clear;
 	}
 	catch(string a)

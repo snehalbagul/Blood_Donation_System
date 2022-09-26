@@ -14,6 +14,8 @@
 #include<set>
 #include<list>
 #include<string>
+#include<string.h>
+#include<stdlib.h>
 #include "header.hpp"
 using namespace std;
 static int flag=0;
@@ -23,21 +25,20 @@ static int flag=0;
 class blood_donation
 {
 	protected:
-		string age;
-		string aadhar_num;
-		string name;
-		string address;
-		string blood_group;
+		char age[5];
+		char aadhar_num[15];
+		char name[20];
+		char address[30];
+		char blood_group[5];
 
-	public:
-		blood_donation()
+		/*blood_donation()
 		{
-			aadhar_num="";
-			name="";
-			address="";
-			blood_group="";
-			age="";
-		}
+			aadhar_num='\0';
+			name='\0';
+			address='\0';
+			blood_group='\0';
+			age='\0';
+		}*/
 };
 
 //-------------------------------DONOR CLASS-(DERIVED CLASS)-------------------------
@@ -45,7 +46,7 @@ class blood_donation
 class donor:public blood_donation
 {
 	protected:
-		string medical_clear;
+		char medical_clear[5];
 		int units_donated;
 	public:
 		donor()
@@ -59,57 +60,56 @@ class donor:public blood_donation
 		int previous_day_donor_report();
 		int five_highest_donor_report();
 		int view_all_donor_data();
-		friend class testdr;
 
-		string get_aadhar_num()
+		char* get_aadhar_num()
 		{
 			return this->aadhar_num;
 		}
-		string get_blood_group()
+		char* get_blood_group()
 		{
 			return this->blood_group;
 		}
-		string get_name()
+		char* get_name()
 		{
 			return this->name;
 		}
-		string get_address()
+		char* get_address()
 		{
 			return this->address;
 		}
-		string get_age()
+		char* get_age()
 		{
 			return this->age;
 		}
-		int get_units_donated()
+		int* get_units_donated()
 		{
-			return this->units_donated;
+			return &this->units_donated;
 		}
 		int set_units_donated(int u)
 		{
 			return this->units_donated=units_donated+u;
 		}
-		void put_aadhar_num(string a_num)
+		void put_aadhar_num()
 		{
-			this->aadhar_num=a_num;
+			strcpy(this->aadhar_num,aadhar_num);
 		}
-		void put_name(string name)
+		void put_name()
 		{
-			this->name=name;
+			strcpy(this->name,name);
 		}
-		void put_address(string address)
+		void put_address()
 		{
-			this->address=address;
+			strcpy(this->address,address);
 		}
-		void put_age(string age)
+		void put_age()
 		{
-			this->age=age;
+			strcpy(this->age,age);
 		}
-		void put_blood_group(string blood_group)
+		void put_blood_group()
 		{
-			this->blood_group=blood_group;
+			strcpy(this->blood_group,blood_group);
 		}
-		void put_units_donated(int units_donated)
+		void put_units_donated()
 		{
 			this->units_donated=units_donated;
 		}
@@ -143,9 +143,10 @@ int donor::get_donor_data()
 
 		if(aadhar_validation(aadhar_num)==true)
 		{
+			flag=0;
 			for(auto it:l)
 			{
-				if(it.get_aadhar_num()==aadhar_num)
+				if(strcmp(it.get_aadhar_num(),aadhar_num))
 				{
 					cout<<"Aadhar number should not be duplicate."<<endl;
 					flag=1;
@@ -154,9 +155,11 @@ int donor::get_donor_data()
 			}
 			if(flag==1)
 				continue;
+			else
+				break;
 		}
 		else
-			break;
+			continue;
 	}
 
 
@@ -164,7 +167,7 @@ int donor::get_donor_data()
 	while(1)
 	{
 		cout<<endl<<"Enter your initial name-";
-		getline(cin>>ws,name);
+		cin>>name;
 		if(name_validation(name)==true)
 			break;
 		else
@@ -175,7 +178,7 @@ int donor::get_donor_data()
 	while(1)
 	{
 		cout<<endl<<"Enter your address-";
-		getline(cin,address);
+		cin>>address;
 		if(address_validation(address)==true)
 			break;
 		else
@@ -194,7 +197,7 @@ int donor::get_donor_data()
 	}
 
 	//....Blood group validation........
-	string ch;
+	char ch[2];
 	while(1)
 	{
 		cout<<endl<<"Blood Groups -";
@@ -212,8 +215,8 @@ int donor::get_donor_data()
 			continue;
 	}
 
-	string str[8]={"A+","A-","B+","B-","O+","O-","AB-","AB+"};
-	blood_group=str[stoi(ch)-1];
+	char str[8][4]={"A+","A-","B+","B-","O+","O-","AB-","AB+"};
+	strcpy(blood_group,str[atoi(ch)-1]);
 
 	//....Medical clearance validation.......
 	while(1)
