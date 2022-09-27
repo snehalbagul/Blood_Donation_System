@@ -14,9 +14,9 @@
 #include<iostream>
 #include<iomanip>
 #include<thread>
-#include "class.hpp"
+//#include "class.hpp"
 //#include "receiver_related_operations.cpp"
-//#include "manage_donor_data.cpp"
+#include "manage_donor_data.cpp"
 //#include "employee_validation.cpp"
 //#include "Validation.cpp"
 //#include "report.cpp"

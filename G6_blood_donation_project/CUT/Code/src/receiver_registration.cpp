@@ -18,11 +18,10 @@
 #include<string.h>
 #include<string>
 #include<stdlib.h>
-//#include "class.hpp"
 #include "header.hpp"
 using namespace std;
 
-// int flag=0;
+ 
 /*************************************RECEIVER CLASS**********************************************************/
 
 class receiver:public blood_donation //Inheriting from blood donation

@@ -12,7 +12,6 @@
 #include<iomanip>
 #include<fstream>
 #include "header.hpp"
-//#include "class.hpp"
 #include<cstring>
 #include<string.h>
 using namespace std;

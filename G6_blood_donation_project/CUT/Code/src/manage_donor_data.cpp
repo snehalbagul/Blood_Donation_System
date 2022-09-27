@@ -15,12 +15,10 @@
 #include<string>
 #include<string.h>
 #include<stdlib.h>
-//#include "class.hpp"
 using namespace std;
 
 //-----------------------------EDIT DONOR DATA------------------------------------------
 
-// int flag=0;
 int donor::edit_donor_data()
 {
 	system("clear");

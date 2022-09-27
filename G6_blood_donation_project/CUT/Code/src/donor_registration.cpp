@@ -16,8 +16,6 @@
 #include<string>
 #include<string.h>
 #include<stdlib.h>
-//#include "class.hpp"
-#include "header.hpp"
 using namespace std;
 
 //----------------------------BLOOD DONATION CLASS(BASE CLASS)------------------------

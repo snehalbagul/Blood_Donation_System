@@ -13,7 +13,6 @@
 #include<fstream>
 #include<iomanip>
 #include<string.h>
-//#include "class.hpp"
 #include "header.hpp"
 using namespace std;
 
