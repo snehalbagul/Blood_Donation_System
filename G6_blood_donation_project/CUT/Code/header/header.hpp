@@ -1,3 +1,11 @@
+/******************************************************************************************
+ ** FILE NAME     :     header
+ **
+ ** DESCRIPTION   :     In this fileall headers are included
+ **
+ **
+ ****************************************************************************************/
+
 #ifndef HEADER_H
 #define HEADER_H
 
@@ -19,11 +27,15 @@ bool submenu();
 int report_corner_menu();
 int manage_donor_menu();
 int copy_donor_data();
-class blood_donation;
+#include "donor_registration.cpp"
+#include "donor_file_operation.cpp"
+#include "receiver_registration.cpp"
+#include "class.hpp"
+#include "receiver_related_operations.cpp"
+#include "employee_validation.cpp"
+#include "report.cpp"
+#include "submenu.cpp"
+#include "transaction_file_operation.cpp"
 
 #endif
-
-
-//class donor;
-//list<donor> l;
 
